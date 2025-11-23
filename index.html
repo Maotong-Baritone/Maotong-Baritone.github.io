@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Maotong Yu | Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(to bottom, #f5eee6, #e8d9c4);
+      color: #3a2b2a;
+      line-height: 1.6;
+    }
+
+    /* ===== 导航栏 ===== */
+    nav {
+      background-color: rgba(90, 60, 50, 0.95);
+      padding: 1rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 2px solid rgba(140, 110, 80, 0.4);
+    }
+    nav a {
+      color: #f6f1e9;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #d5b890;
+    }
+
+    /* ===== Header ===== */
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+      animation: fadeIn 1s ease-out;
+    }
+
+    header img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 100px;
+      border: 4px solid #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      margin-bottom: 1rem;
+      animation: fadeIn 1.2s ease-out;
+    }
+
+    h1, h2 {
+      font-family: 'Playfair Display', serif;
+      color: #4a2c2a;
+    }
+
+    /* ===== Section ===== */
+    section {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 8px;
+      margin-top: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      animation: fadeIn 1.3s ease-out;
+    }
+
+    /* ===== Section 标题下划线 ===== */
+    h2 {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+    h2::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 60%;
+      height: 2px;
+      background: linear-gradient(to right, #bfa16a, transparent);
+    }
+
+    /* ===== Table ===== */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    th, td {
+      padding: 0.8rem;
+      text-align: left;
+    }
+    th {
+      background-color: rgba(74, 44, 42, 0.1);
+    }
+    a.button-link {
+      padding: 0.4rem 0.8rem;
+      background-color: #4a2c2a;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+    a.button-link:hover {
+      background-color: #6a4c3c;
+    }
+
+    /* ===== Gallery ===== */
+    .scroll-gallery {
+      display: flex;
+      overflow-x: auto;
+      gap: 1rem;
+      padding: 1rem 0;
+      scroll-behavior: smooth;
+    }
+    .scroll-gallery img {
+      flex: 0 0 auto;
+      width: 250px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 6px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+    .scroll-gallery img:hover {
+      transform: scale(1.05);
+      filter: brightness(1.1);
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9em;
+      background-color: rgba(230, 216, 200, 0.95);
+      color: #4a3a35;
+      margin-top: 2rem;
+      border-top: 2px solid rgba(140, 110, 80, 0.4);
+    }
+
+    /* ===== 动画效果 ===== */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="media.html">Media</a>
+    <a href="resume.html">Résumé</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <header>
+    <img src="profile_photo.jpg" alt="Maotong Yu Portrait">
+    <h1>Maotong Yu</h1>
+    <p>Baritone</p>
+  </header>
+
+  <section>
+    <h2>Biography</h2>
+    <p>Maotong Yu is currently pursuing a Master of Music in Vocal Performance at the Lamont School of Music, University of Denver. He holds both a Bachelor’s and a Master’s degree in Music Education with a focus on vocal pedagogy from Tianjin Conservatory of Music. In the 2024–2025 academic year, he earned a Vocal Performance Certificate from Lamont School of Music.</p>
+
+    <p>On stage, Maotong Yu appeared in the title role of Puccini’s <em>Gianni Schicchi</em> at Lamont in 2025, and he is scheduled to perform the role of Dr. Falke in Johann Strauss II’s <em>Die Fledermaus</em> at Lamont in 2026. He studies voice under Matthew Plenk and collaborates closely with vocal coaches Dr. Beth Nielsen and Sahar Nouri, as well as conductors Sahar Nouri and Catherine Sailer, gaining extensive performance and collaborative experience.</p>
+
+    <p>Maotong Yu’s artistic philosophy emphasizes expressive vocalism and emotional resonance, striving to combine refined technical skill with deep musical understanding in every performance, bringing audiences a captivating and memorable musical experience.</p>
+  </section>
+
+  <section>
+    <h2>Upcoming Performances</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Event</th>
+          <th>Location</th>
+          <th style="text-align:center;">Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Jan 29, 2026<br>7:30pm - 9:00pm</td>
+          <td>Winter Showcase</td>
+          <td>Newman Center for the Performing Arts, Hamilton Hall</td>
+          <td style="text-align:center;"><a class="button-link" href="https://liberalarts.du.edu/lamont/news-events/calendar/winter-opera-showcase-0" target="_blank">View</a></td>
+        </tr>
+        <tr>
+          <td>Feb 3, 2026<br>7:30pm - 9:00pm</td>
+          <td>Maotong Yu Elective Recital</td>
+          <td>Newman Center for the Performing Arts, Hamilton Hall</td>
+          <td style="text-align:center;"><a class="button-link" href="https://liberalarts.du.edu/lamont/news-events/calendar/maotong-yu-elective" target="_blank">View</a></td>
+        </tr>
+        <tr>
+          <td>March 11, 2026<br>7:30pm - 9:00pm</td>
+          <td>Graduate Voice Repertoire</td>
+          <td>Newman Center for the Performing Arts, Hamilton Hall</td>
+          <td style="text-align:center;"><a class="button-link" href="https://liberalarts.du.edu/lamont/news-events/calendar/graduate-voice-repertoire-2" target="_blank">View</a></td>
+        </tr>
+        <tr>
+          <td>April 23, 2026<br>7:30pm - 9:30pm</td>
+          <td>Lamont Opera Theatre presents “Die Fledermaus”</td>
+          <td>Newman Center for the Performing Arts, Gates Concert Hall</td>
+          <td style="text-align:center;"><a class="button-link" href="https://liberalarts.du.edu/lamont/news-events/calendar/lamont-opera-theatre-presents-die-fledermaus" target="_blank">View</a></td>
+        </tr>
+        <tr>
+          <td>April 25, 2026<br>7:30pm - 9:30pm</td>
+          <td>Lamont Opera Theatre presents “Die Fledermaus”</td>
+          <td>Newman Center for the Performing Arts, Gates Concert Hall</td>
+          <td style="text-align:center;"><a class="button-link" href="https://liberalarts.du.edu/lamont/news-events/calendar/lamont-opera-theatre-presents-die-fledermaus-2" target="_blank">View</a></td>
+        </tr>
+        <tr>
+          <td>May 28, 2026<br>7:30pm - 9:00pm</td>
+          <td>Opera Workshop</td>
+          <td>Newman Center for the Performing Arts, Hamilton Hall</td>
+          <td style="text-align:center;"><a class="button-link" href="https://liberalarts.du.edu/lamont/news-events/calendar/opera-workshop-5" target="_blank">View</a></td>
+        </tr>
+        <tr>
+          <td>May 29, 2026<br>7:30pm - 9:00pm</td>
+          <td>Opera Workshop</td>
+          <td>Newman Center for the Performing Arts, Hamilton Hall</td>
+          <td style="text-align:center;"><a class="button-link" href="https://liberalarts.du.edu/lamont/news-events/calendar/opera-workshop-6" target="_blank">View</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Photo Gallery</h2>
+    <div class="scroll-gallery">
+      <img src="images/photo1.jpg" alt="Performance 1">
+      <img src="images/photo2.jpg" alt="Performance 2">
+      <img src="images/photo3.jpg" alt="Performance 3">
+      <img src="images/photo4.jpg" alt="Performance 4">
+      <img src="images/photo5.jpg" alt="Performance 5">
+      <img src="images/photo6.jpg" alt="Performance 6">
+      <img src="images/photo7.jpg" alt="Performance 7">
+    </div>
+  </section>
+
+  <footer>&copy; 2025 Maotong Yu | Designed with artistic inspiration 🎵</footer>
+</body>
+</html>
