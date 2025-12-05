@@ -29,12 +29,12 @@
       position: fixed;
       top: 0;
       bottom: 0;
-      width: 40vw; /* 稍微加宽一点，因为只有一边了，视觉上更平衡 */
+      width: 40vw; 
       z-index: -1;
       background-size: cover;
       background-position: top center;
       background-repeat: no-repeat;
-      filter: saturate(0.8) contrast(1.1); /* 胶片质感 */
+      filter: saturate(0.8) contrast(1.1);
     }
 
     /* 左侧照片具体设置 */
@@ -48,23 +48,23 @@
       mask-image: linear-gradient(to right, black 10%, transparent 100%);
       
       /* 应用入场动画 */
-      opacity: 0; /* 初始隐藏 */
+      opacity: 0; 
       animation: heroEnterLeft 2s ease-out forwards;
     }
 
-    /* 定义左侧照片入场动画：从左侧滑入 + 渐显 */
+    /* 定义左侧照片入场动画 */
     @keyframes heroEnterLeft {
       0% {
         opacity: 0;
-        transform: translateX(-80px); /* 从左边80像素处开始 */
+        transform: translateX(-80px);
       }
       100% {
-        opacity: 0.6; /* 最终停留在0.6透明度，避免抢戏 */
+        opacity: 0.6; 
         transform: translateX(0);
       }
     }
 
-    /* 屏幕较窄时（如平板/手机）隐藏侧边图，避免挡住文字 */
+    /* 屏幕较窄时隐藏侧边图 */
     @media (max-width: 1300px) {
       .side-hero {
         display: none;
@@ -111,7 +111,7 @@
       left: 0;
     }
 
-    /* ===== Header ===== */
+    /* ===== Header (头像区域) ===== */
     header {
       text-align: center;
       padding: 4rem 1rem 3rem 1rem;
@@ -122,9 +122,15 @@
     }
 
     header img {
-      width: 200px;
-      height: 200px;
+      /* === 修改点：尺寸加大了 === */
+      width: 230px; 
+      height: 230px;
+      /* ======================= */
+      
       object-fit: cover;
+/* === 新增这行 === */
+      object-position: 50% 25%; /* 这里你可以反复修改 25% 这个数字直到满意 */
+      /* ================ */
       border-radius: 50%;
       border: 3px solid var(--primary-gold);
       outline: 4px solid rgba(197, 160, 89, 0.3);
