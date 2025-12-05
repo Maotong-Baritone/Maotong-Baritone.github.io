@@ -16,39 +16,55 @@
     body {
       margin: 0;
       font-family: 'Lato', sans-serif;
+      /* 深色舞台背景 */
       background: radial-gradient(circle at top center, #3e2b26 0%, #1a1515 80%);
       color: var(--text-main);
       line-height: 1.8;
       min-height: 100vh;
-      overflow-x: hidden; /* 防止图片过宽出现横向滚动条 */
+      overflow-x: hidden;
     }
 
-    /* ===== 侧边 Hero Photos 样式 (新添加) ===== */
+    /* ===== 左侧 Hero Photo 样式 & 动效 ===== */
     .side-hero {
-      position: fixed; /* 固定在窗口，不随滚动条移动 */
+      position: fixed;
       top: 0;
       bottom: 0;
-      width: 35vw; /* 占据屏幕宽度的35% */
-      z-index: -1; /* 放在所有内容的最底层 */
+      width: 40vw; /* 稍微加宽一点，因为只有一边了，视觉上更平衡 */
+      z-index: -1;
       background-size: cover;
       background-position: top center;
       background-repeat: no-repeat;
-      opacity: 0.6; /* 设置透明度，不要太抢眼 */
-      filter: saturate(0.8) contrast(1.1); /* 微调色彩，更有胶片感 */
-      transition: opacity 1s ease;
+      filter: saturate(0.8) contrast(1.1); /* 胶片质感 */
     }
 
-    /* 左侧照片 */
+    /* 左侧照片具体设置 */
     .hero-left {
       left: 0;
-      /* 这里替换成你的竖版演出照片 */
+      /* 请确保 image 文件夹里有这张照片 */
       background-image: url('image/photo_left.jpg'); 
-      /* 让图片向右侧逐渐透明，融入背景 */
-      -webkit-mask-image: linear-gradient(to right, black 20%, transparent 100%);
-      mask-image: linear-gradient(to right, black 20%, transparent 100%);
+      
+      /* 边缘羽化：向右逐渐变透明 */
+      -webkit-mask-image: linear-gradient(to right, black 10%, transparent 100%);
+      mask-image: linear-gradient(to right, black 10%, transparent 100%);
+      
+      /* 应用入场动画 */
+      opacity: 0; /* 初始隐藏 */
+      animation: heroEnterLeft 2s ease-out forwards;
     }
 
-    /* 屏幕宽度小于 1300px 时隐藏侧边图，避免遮挡文字 */
+    /* 定义左侧照片入场动画：从左侧滑入 + 渐显 */
+    @keyframes heroEnterLeft {
+      0% {
+        opacity: 0;
+        transform: translateX(-80px); /* 从左边80像素处开始 */
+      }
+      100% {
+        opacity: 0.6; /* 最终停留在0.6透明度，避免抢戏 */
+        transform: translateX(0);
+      }
+    }
+
+    /* 屏幕较窄时（如平板/手机）隐藏侧边图，避免挡住文字 */
     @media (max-width: 1300px) {
       .side-hero {
         display: none;
@@ -101,8 +117,8 @@
       padding: 4rem 1rem 3rem 1rem;
       animation: fadeIn 1s ease-out;
       color: #fff;
-      position: relative; 
-      z-index: 1; /* 确保文字浮在背景图之上 */
+      position: relative;
+      z-index: 1;
     }
 
     header img {
@@ -119,7 +135,7 @@
       transition: transform 0.5s ease;
     }
     header img:hover {
-        transform: scale(1.02);
+      transform: scale(1.02);
     }
 
     h1 {
@@ -151,15 +167,15 @@
       animation: slideUp 1s ease-out;
       position: relative;
       border: 1px solid #e0e0e0;
-      z-index: 1; /* 确保内容浮在背景图之上 */
+      z-index: 1;
     }
     
     section::before {
-        content: "";
-        position: absolute;
-        top: 6px; left: 6px; right: 6px; bottom: 6px;
-        border: 1px solid rgba(197, 160, 89, 0.2);
-        pointer-events: none;
+      content: "";
+      position: absolute;
+      top: 6px; left: 6px; right: 6px; bottom: 6px;
+      border: 1px solid rgba(197, 160, 89, 0.2);
+      pointer-events: none;
     }
 
     h2 {
@@ -188,14 +204,14 @@
     }
 
     section p {
-        color: var(--text-muted);
-        font-size: 1.05rem;
-        text-align: justify;
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      text-align: justify;
     }
     em {
-        color: #6b2c2c;
-        font-family: 'Playfair Display', serif;
-        font-weight: 600;
+      color: #6b2c2c;
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
     }
 
     /* ===== Table ===== */
@@ -222,9 +238,9 @@
       color: var(--text-muted);
     }
     td:first-child {
-        font-weight: bold;
-        color: #333;
-        font-family: 'Playfair Display', serif;
+      font-weight: bold;
+      color: #333;
+      font-family: 'Playfair Display', serif;
     }
     a.button-link {
       padding: 0.5rem 1.2rem;
@@ -253,11 +269,11 @@
       scroll-behavior: smooth;
     }
     .scroll-gallery::-webkit-scrollbar {
-        height: 6px;
+      height: 6px;
     }
     .scroll-gallery::-webkit-scrollbar-thumb {
-        background-color: var(--primary-gold);
-        border-radius: 3px;
+      background-color: var(--primary-gold);
+      border-radius: 3px;
     }
     .scroll-gallery img {
       flex: 0 0 auto;
@@ -287,6 +303,7 @@
       border-top: 1px solid rgba(197, 160, 89, 0.2);
     }
 
+    /* ===== 通用动画 ===== */
     @keyframes fadeIn {
       from { opacity: 0; transform: scale(0.95); }
       to { opacity: 1; transform: scale(1); }
@@ -300,7 +317,6 @@
 <body>
   
   <div class="side-hero hero-left"></div>
-  <div class="side-hero hero-right"></div>
   <nav>
     <a href="index.html">Home</a>
     <a href="media.html">Media</a>
