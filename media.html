@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Maotong Yu | Media</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-gold: #c5a059;
+      --deep-bg: #1a1515;
+      --card-bg: #faf9f6;
+      --text-main: #2c2420;
+      --text-muted: #5a4a42;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Lato', sans-serif;
+      /* 保持与主页一致的深色舞台背景 */
+      background: radial-gradient(circle at top center, #3e2b26 0%, #1a1515 80%);
+      color: var(--text-main);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ===== 导航栏 (保持一致) ===== */
+    nav {
+      background-color: rgba(26, 21, 21, 0.95);
+      padding: 1.2rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+      backdrop-filter: blur(5px);
+    }
+    nav a {
+      color: #e0d0b0;
+      text-decoration: none;
+      margin: 0 1.5rem;
+      font-family: 'Playfair Display', serif;
+      font-weight: 400;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      font-size: 1.1rem;
+      position: relative;
+    }
+    nav a:hover {
+      color: var(--primary-gold);
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 1px;
+      bottom: -4px;
+      left: 50%;
+      background-color: var(--primary-gold);
+      transition: all 0.3s ease;
+    }
+    nav a:hover::after {
+      width: 100%;
+      left: 0;
+    }
+
+    /* ===== Section 容器 ===== */
+    section {
+      padding: 4rem 3rem;
+      max-width: 1000px; /*稍微加宽以容纳两列视频 */
+      margin: auto;
+      background-color: var(--card-bg);
+      border-radius: 4px;
+      margin-top: 3rem;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+      animation: fadeIn 1s ease-out;
+      position: relative;
+      border: 1px solid #e0e0e0;
+      margin-bottom: 4rem;
+    }
+    
+    /* 内部装饰金线 */
+    section::before {
+        content: "";
+        position: absolute;
+        top: 6px; left: 6px; right: 6px; bottom: 6px;
+        border: 1px solid rgba(197, 160, 89, 0.2);
+        pointer-events: none;
+    }
+
+    /* ===== 标题样式 ===== */
+    h2 {
+      font-family: 'Playfair Display', serif;
+      color: #1a1515;
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+    h2::after {
+      content: "♦";
+      display: block;
+      font-size: 1rem;
+      color: var(--primary-gold);
+      margin-top: 10px;
+      line-height: 0.5;
+    }
+    h2::before {
+       content: "";
+       display: block;
+       width: 60px;
+       height: 1px;
+       background: var(--primary-gold);
+       margin: 0 auto 10px auto;
+    }
+
+    /* ===== 视频网格布局 ===== */
+    .media-grid {
+      display: grid;
+      /* 自适应两列布局：宽度至少400px，否则换行 */
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
+      gap: 3rem;
+      padding: 0 1rem;
+    }
+
+    .media-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h3 {
+      font-family: 'Playfair Display', serif;
+      color: var(--text-main);
+      font-size: 1.2rem;
+      margin-top: 1.2rem;
+      margin-bottom: 0.5rem;
+      text-align: center;
+      font-weight: 600;
+    }
+    
+    /* 视频下方的装饰线 */
+    .divider {
+      width: 40px;
+      height: 2px;
+      background-color: var(--primary-gold);
+      margin-bottom: 1.5rem;
+      opacity: 0.6;
+    }
+
+    /* ===== 视频容器 (画框效果) ===== */
+    .video-frame {
+      width: 100%;
+      position: relative;
+      /* 16:9 比例 */
+      padding-bottom: 56.25%; 
+      height: 0;
+      overflow: hidden;
+      
+      /* 艺术画框样式 */
+      background-color: #000;
+      border: 4px solid #fff; /* 白衬 */
+      outline: 1px solid var(--primary-gold); /* 金框 */
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .video-frame:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+      outline-width: 2px; /* 悬停时金框变粗 */
+    }
+
+    .video-frame iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      font-size: 0.9em;
+      background-color: transparent;
+      color: rgba(255, 255, 255, 0.6);
+      border-top: 1px solid rgba(197, 160, 89, 0.2);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* 移动端适配 */
+    @media (max-width: 768px) {
+        .media-grid {
+            grid-template-columns: 1fr; /* 手机上单列 */
+        }
+        section {
+            padding: 2rem 1rem;
+        }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="media.html">Media</a>
+    <a href="resume.html">Résumé</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <section>
+    <h2>Performance Gallery</h2>
+
+    <div class="media-grid">
+      
+      <div class="media-item">
+        <div class="video-frame">
+          <iframe src="https://www.youtube.com/embed/VP3CjagCEpc" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <h3>Estuans interius</h3>
+        <div class="divider"></div>
+        <p style="font-size: 0.9em; color: #666; margin-top: -10px;">Carmina Burana</p>
+      </div>
+
+      <div class="media-item">
+        <div class="video-frame">
+          <iframe src="https://www.youtube.com/embed/YrnkQ6-xInQ" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <h3>O Freunde,</h3>
+        <div class="divider"></div>
+        <p style="font-size: 0.9em; color: #666; margin-top: -10px;">Beethoven 9th Symphony</p>
+      </div>
+
+      <div class="media-item">
+        <div class="video-frame">
+          <iframe src="https://www.youtube.com/embed/AAWH9iMF2jI" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <h3>Era eguale la voce</h3>
+        <div class="divider"></div>
+        <p style="font-size: 0.9em; color: #666; margin-top: -10px;">Gianni Schicchi</p>
+      </div>
+
+      <div class="media-item">
+        <div class="video-frame">
+          <iframe src="https://www.youtube.com/embed/qDtRvkYxHLQ" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <h3>Behold! Auspicious flashes rise</h3>
+        <div class="divider"></div>
+        <p style="font-size: 0.9em; color: #666; margin-top: -10px;">Semele</p>
+      </div>
+
+      <div class="media-item">
+        <div class="video-frame">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_5" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <h3>Upcoming Performance</h3>
+        <div class="divider"></div>
+        <p style="font-size: 0.9em; color: #666; margin-top: -10px;">Repertoire TBD</p>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>&copy; 2025 Maotong Yu | Baritone</footer>
+</body>
+</html>

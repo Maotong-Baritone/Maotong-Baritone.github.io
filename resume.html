@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Maotong Yu | Résumé</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-gold: #c5a059;
+      --deep-bg: #1a1515;
+      --paper-bg: #faf9f6;
+      --text-main: #2c2420;
+      --text-muted: #5a4a42;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Lato', sans-serif;
+      /* 延续深色舞台背景 */
+      background: radial-gradient(circle at top center, #3e2b26 0%, #1a1515 80%);
+      color: var(--text-main);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ===== 导航栏 ===== */
+    nav {
+      background-color: rgba(26, 21, 21, 0.95);
+      padding: 1.2rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+      backdrop-filter: blur(5px);
+      /* 打印时隐藏导航栏 */
+      @media print { display: none; }
+    }
+    nav a {
+      color: #e0d0b0;
+      text-decoration: none;
+      margin: 0 1.5rem;
+      font-family: 'Playfair Display', serif;
+      font-weight: 400;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      font-size: 1.1rem;
+      position: relative;
+    }
+    nav a:hover {
+      color: var(--primary-gold);
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 1px;
+      bottom: -4px;
+      left: 50%;
+      background-color: var(--primary-gold);
+      transition: all 0.3s ease;
+    }
+    nav a:hover::after {
+      width: 100%;
+      left: 0;
+    }
+
+    /* ===== 简历纸张容器 ===== */
+    .resume-paper {
+      max-width: 900px;
+      margin: 3rem auto 4rem auto;
+      background-color: var(--paper-bg);
+      padding: 4rem 3rem; /* 宽敞的内边距 */
+      border-radius: 2px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5); /* 强烈的阴影提升立体感 */
+      position: relative;
+      animation: slideUp 0.8s ease-out;
+    }
+    
+    /* 顶部装饰金线 */
+    .resume-paper::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 4px;
+        background: linear-gradient(to right, transparent, var(--primary-gold), transparent);
+    }
+
+    /* ===== 头部信息 ===== */
+    header.resume-header {
+        text-align: center;
+        margin-bottom: 3rem;
+        border-bottom: 1px solid #e0e0e0;
+        padding-bottom: 2rem;
+    }
+    
+    h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem;
+        margin: 0 0 0.5rem 0;
+        color: #1a1515;
+        letter-spacing: 2px;
+    }
+
+    .contact-info {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        flex-wrap: wrap;
+    }
+    .contact-info span {
+        position: relative;
+    }
+    /* 分隔符 */
+    .contact-info span:not(:last-child)::after {
+        content: "•";
+        color: var(--primary-gold);
+        position: absolute;
+        right: -12px;
+        top: 0;
+    }
+
+    /* ===== 版块标题 ===== */
+    h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.8rem;
+        color: #1a1515;
+        margin-top: 0;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        position: relative;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    
+    h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--text-main);
+      border-bottom: 1px solid var(--primary-gold);
+      padding-bottom: 5px;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+    }
+
+    /* ===== 列表与排版 ===== */
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    li {
+        margin-bottom: 0.8rem;
+        display: flex;
+        justify-content: space-between; /* 让年份靠右 */
+        align-items: baseline;
+    }
+    
+    /* 针对只有一行的简单列表 */
+    .simple-list li {
+        justify-content: flex-start;
+    }
+    .simple-list li::before {
+        content: "♦";
+        color: var(--primary-gold);
+        font-size: 0.8rem;
+        margin-right: 10px;
+    }
+
+    /* 强调文本 */
+    strong {
+        font-weight: 700;
+        color: #000;
+    }
+    em {
+        font-family: 'Playfair Display', serif;
+        font-style: italic;
+        color: #4a3a35;
+        font-weight: 600;
+    }
+    
+    .year {
+        font-weight: 300;
+        color: var(--text-muted);
+        min-width: 60px;
+        text-align: right;
+    }
+
+    /* ===== 表格样式 (用于 Roles) ===== */
+    .roles-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 1rem;
+    }
+    .roles-table th {
+        text-align: left;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid #ddd;
+    }
+    .roles-table td {
+        padding: 0.6rem 0;
+        vertical-align: top;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    .roles-table td:last-child {
+        text-align: right;
+    }
+
+    /* ===== 导师列表网格 ===== */
+    .mentors-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+    .mentor-category {
+        margin-bottom: 0.5rem;
+    }
+    .mentor-label {
+        font-weight: bold;
+        display: block;
+        color: var(--primary-gold);
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        margin-bottom: 0.2rem;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9em;
+      color: rgba(255, 255, 255, 0.6);
+      margin-top: 2rem;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* 移动端适配 */
+    @media (max-width: 600px) {
+        .resume-paper {
+            padding: 2rem 1.5rem;
+            margin-top: 1rem;
+        }
+        .contact-info {
+            flex-direction: column;
+            gap: 0.5rem;
+            align-items: center;
+        }
+        .contact-info span:not(:last-child)::after {
+            display: none;
+        }
+        li {
+            flex-direction: column;
+            margin-bottom: 1.2rem;
+        }
+        .year {
+            text-align: left;
+            font-size: 0.9em;
+            color: var(--primary-gold);
+        }
+        .roles-table, .roles-table tbody, .roles-table tr, .roles-table td {
+            display: block;
+            width: 100%;
+        }
+        .roles-table thead { display: none; }
+        .roles-table tr { margin-bottom: 1.5rem; border-bottom: 1px solid #eee; }
+        .roles-table td { padding: 0.2rem 0; border: none; }
+        .roles-table td:last-child { text-align: left; color: var(--primary-gold); }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="media.html">Media</a>
+    <a href="resume.html">Résumé</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <div class="resume-paper">
+    <header class="resume-header">
+        <h1>Maotong Yu</h1>
+        <div class="contact-info">
+            <span>Baritone</span>
+            <span>+1 (303) 217-6852</span>
+            <span>yumaotong0613@gmail.com</span>
+            <span>Denver, CO</span>
+        </div>
+    </header>
+
+    <h3>Performance Experience: Roles</h3>
+    <table class="roles-table">
+        <thead>
+            <tr>
+                <th style="width: 25%">Role</th>
+                <th style="width: 30%">Production</th>
+                <th style="width: 35%">Company/Venue</th>
+                <th style="width: 10%; text-align:right;">Year</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Dr. Falke</strong></td>
+                <td><em>Die Fledermaus</em></td>
+                <td>Lamont Opera Theatre</td>
+                <td>2026</td>
+            </tr>
+            <tr>
+                <td><strong>Cadmus</strong></td>
+                <td><em>Semele</em></td>
+                <td>Lamont Opera Theatre</td>
+                <td>2025</td>
+            </tr>
+            <tr>
+                <td><strong>Somnus</strong></td>
+                <td><em>Semele</em></td>
+                <td>Lamont Opera Theatre</td>
+                <td>2025</td>
+            </tr>
+            <tr>
+                <td><strong>Gianni Schicchi</strong></td>
+                <td><em>Gianni Schicchi</em></td>
+                <td>Lamont Opera Theatre</td>
+                <td>2025</td>
+            </tr>
+            <tr>
+                <td><strong>Sorceress</strong></td>
+                <td><em>Dido and Aeneas</em></td>
+                <td>Lamont Opera Theatre</td>
+                <td>2024</td>
+            </tr>
+            <tr>
+                <td><strong>Scholar of Jian'an</strong></td>
+                <td><em>Goddess of the Luo River</em></td>
+                <td>Tianjin Song and Dance Theatre</td>
+                <td>2023</td>
+            </tr>
+            <tr>
+                <td><strong>Soldier</strong></td>
+                <td><em>Lover's Knot</em></td>
+                <td>Tianjin Conservatory of Music</td>
+                <td>2023</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Concert & Solo Performances</h3>
+    <ul>
+        <li>
+            <span>Baritone Soloist, <em>Bach Cantata BWV 61</em>, Wellshire Presbyterian Church</span>
+            <span class="year">2025</span>
+        </li>
+        <li>
+            <span>Baritone Soloist, <em>Outstanding Student Concert</em>, Tianjin Concert Hall</span>
+            <span class="year">2023</span>
+        </li>
+        <li>
+            <span>Baritone Soloist, <em>Tchaikovsky Night Concert</em>, Tianjin Concert Hall</span>
+            <span class="year">2023</span>
+        </li>
+    </ul>
+
+    <h3>Choral & Ensemble</h3>
+    <ul>
+        <li>
+            <span><em>World Premiere of Taylor Scott Davis' To Sing of Love</em>, with Evergreen Chorale</span>
+            <span class="year">2025</span>
+        </li>
+        <li>
+            <span><em>La Traviata</em>, Opera Chorus with Opera Colorado, Ellie Caulkins Opera House</span>
+            <span class="year">2025</span>
+        </li>
+        <li>
+            <span><em>Deutsche Requiem</em>,  Lamont Opera Theatre, University of Denver</span>
+            <span class="year">2025</span>
+        </li>
+        <li>
+            <span><em>Dracula Ballet</em>, with The Evans Choir & Colorado Ballet, Ellie Caulkins Opera House</span>
+            <span class="year">2025</span>
+        </li>
+        <li>
+            <span><em>Beethoven Symphony No. 9</em>, with Evergreen Chorale</span>
+            <span class="year">2025</span>
+        </li>
+        <li>
+            <span><em>Verdi Requiem</em>, Lamont Opera Theatre, University of Denver</span>
+            <span class="year">2025</span>
+        </li>
+    </ul>
+
+    <h3>Education</h3>
+    <ul>
+        <li>
+            <span><strong>Master of Music, Voice Performance</strong>, University of Denver, Lamont School of Music</span>
+            <span class="year">2025–2027</span>
+        </li>
+        <li>
+            <span><strong>Performance Certificate</strong>, University of Denver, Lamont School of Music</span>
+            <span class="year">2024–2025</span>
+        </li>
+        <li>
+            <span><strong>Master of Music, Music Education</strong>, Tianjin Conservatory of Music</span>
+            <span class="year">2021–2024</span>
+        </li>
+        <li>
+            <span><strong>Bachelor of Music, Music Education</strong>, Tianjin Conservatory of Music</span>
+            <span class="year">2017–2021</span>
+        </li>
+    </ul>
+
+    <h3>Honors & Awards</h3>
+    <ul>
+        <li>
+            <span>Denver Lyric Opera Guild Award</span>
+            <span class="year">2025</span>
+        </li>
+        <li>
+            <span>National Scholarship (Graduate)</span>
+            <span class="year">2024</span>
+        </li>
+        <li>
+            <span>Outstanding Graduate Honor</span>
+            <span class="year">2024</span>
+        </li>
+        <li>
+            <span>Outstanding Student Honor (Graduate)</span>
+            <span class="year">2023</span>
+        </li>
+    </ul>
+
+    <h3>Festivals & Programs</h3>
+    <ul>
+        <li>
+            <span>National Arts Fund Project, National Centre for the Performing Arts</span>
+            <span class="year">2024</span>
+        </li>
+        <li>
+            <span>Tianjin Music Festival, Tianjin Grand Theatre</span>
+            <span class="year">2023</span>
+        </li>
+        <li>
+            <span>Harbin Symphony Music Festival, Harbin Grand Theatre</span>
+            <span class="year">2023</span>
+        </li>
+        <li>
+            <span>Hangzhou Opera Festival, Hangzhou Opera Theatre</span>
+            <span class="year">2023</span>
+        </li>
+        <li>
+            <span>Jinan International Music Festival, Shandong Grand Theatre</span>
+            <span class="year">2019</span>
+        </li>
+    </ul>
+
+    <h3>Artistic Mentorship</h3>
+    <div class="mentors-grid">
+        <div class="mentor-category">
+            <span class="mentor-label">Voice Teachers</span>
+            Matthew Plenk, Xiuqi Li
+        </div>
+        <div class="mentor-category">
+            <span class="mentor-label">Coaches</span>
+            Beth Nielsen, Sahar Nouri, Lindsay Woodward
+        </div>
+        <div class="mentor-category">
+            <span class="mentor-label">Conductors</span>
+            Sahar Nouri, Catherine Sailer, Christine Gaudreau
+        </div>
+        <div class="mentor-category">
+            <span class="mentor-label">Directors</span>
+            Matthew Plenk
+        </div>
+    </div>
+
+    <h3>Additional Skills</h3>
+    <p style="text-align: justify; color: var(--text-muted);">
+        <strong>Piano:</strong> Extensive experience accompanying vocal students and performing solo recitals. Repertoire includes works by Bach, Mozart, Beethoven, Schubert, Chopin, and Khachaturian.
+    </p>
+
+  </div>
+
+  <footer>&copy; 2025 Maotong Yu | Baritone</footer>
+</body>
+</html>
