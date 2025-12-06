@@ -27,18 +27,25 @@
        方案核心：分别定义电脑和手机的 Hero 图片样式
        ========================================= */
 
-    /* --- 1. 手机端横幅 (默认显示) --- */
+    /* --- 1. 手机端横幅 (已优化高度) --- */
     .mobile-hero-banner {
       display: block; /* 手机上显示 */
       width: 100%;
-      height: 280px; /* 手机横幅高度 */
+      
+      /* === 修改点 1：大幅增加高度 === */
+      height: 50vh; /* 占据屏幕高度的 50%，确保竖图能显示更多内容 */
+      /* =========================== */
+      
       object-fit: cover;
-      object-position: top center;
+      
+      /* === 修改点 2：调整对焦点 === */
+      object-position: 50% 20%; /* 重点显示照片靠上的部分（脸部），防止切头 */
+      /* =========================== */
+      
       filter: saturate(0.8) contrast(1.1);
       opacity: 0.7;
-      /* 这是一个小技巧：让图片稍微超出 header 顶部，利用负 margin 拉回，制造层叠感 */
       margin-top: -4rem; 
-      padding-bottom: 4rem; /* 填补负 margin 带来的空间 */
+      padding-bottom: 4rem; 
       mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
       -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
     }
@@ -111,18 +118,17 @@
       left: 0;
     }
 
-    /* ===== Header (回到稳健的居中布局) ===== */
+    /* ===== Header ===== */
     header {
       text-align: center;
-      /* 这里设置 overflow: hidden 是为了剪裁手机横幅顶部的多余部分 */
       overflow: hidden; 
-      padding: 0 1rem 3rem 1rem; /* 顶部 padding 设为 0，由图片填充 */
+      padding: 0 1rem 3rem 1rem; 
       animation: fadeIn 1s ease-out;
       color: #fff;
       position: relative;
       z-index: 1;
-      max-width: 900px; /* 限制最大宽度，防止在大屏上太散 */
-      margin: 0 auto; /* 居中 */
+      max-width: 900px; 
+      margin: 0 auto; 
     }
 
     /* 头像样式 */
@@ -137,10 +143,13 @@
       outline-offset: 4px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.5);
       margin-bottom: 1.5rem;
-      /* 关键：手机端负边距，让头像叠在横幅上 */
-      margin-top: -120px; 
+      
+      /* === 修改点 3：调整负边距 === */
+      margin-top: -160px; /* 因为背景图变高了，需要把头像往上提更多，让重叠更明显 */
+      /* =========================== */
+      
       position: relative;
-      z-index: 2; /* 确保头像在横幅上面 */
+      z-index: 2; 
       animation: fadeIn 1.2s ease-out;
       transition: transform 0.5s ease;
     }
@@ -181,21 +190,18 @@
         display: none;
       }
 
-      /* 3. 电脑上重置头像的边距，不再需要重叠效果 */
+      /* 3. 电脑上重置头像的边距 */
       header img.avatar {
-        margin-top: 4rem; /* 恢复正常的顶部间距 */
+        margin-top: 4rem; 
       }
       
-      /* 恢复 Header 的正常 padding */
       header {
          padding-top: 0;
          overflow: visible;
       }
     }
-    /* ========================================= */
 
-
-    /* ===== Section (保持不变) ===== */
+    /* ===== Section ===== */
     section {
       padding: 3rem;
       max-width: 900px;
@@ -254,7 +260,7 @@
       font-weight: 600;
     }
 
-    /* ===== Table (保持不变) ===== */
+    /* ===== Table ===== */
     table {
       width: 100%;
       border-collapse: separate;
@@ -300,7 +306,7 @@
       border-color: var(--text-main);
     }
 
-    /* ===== Gallery (保持不变) ===== */
+    /* ===== Gallery ===== */
     .scroll-gallery {
       display: flex;
       overflow-x: auto;
@@ -332,7 +338,7 @@
       border-color: var(--primary-gold);
     }
 
-    /* ===== Footer (保持不变) ===== */
+    /* ===== Footer ===== */
     footer {
       text-align: center;
       padding: 3rem 1rem;
@@ -343,7 +349,6 @@
       border-top: 1px solid rgba(197, 160, 89, 0.2);
     }
 
-    /* ===== 通用动画 (保持不变) ===== */
     @keyframes fadeIn {
       from { opacity: 0; transform: scale(0.95); }
       to { opacity: 1; transform: scale(1); }
