@@ -196,7 +196,7 @@
     .roles-table {
         width: 100%;
         border-collapse: collapse;
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem; /* 稍微缩小了下边距，为备注留出空间 */
     }
     .roles-table th {
         text-align: left;
@@ -213,6 +213,15 @@
     }
     .roles-table td:last-child {
         text-align: right;
+    }
+
+    /* 新增的 Cover 备注样式 */
+    .role-note {
+        font-size: 0.85em;
+        color: var(--text-muted);
+        text-align: right;
+        margin-bottom: 1.5rem;
+        font-style: italic;
     }
 
     /* ===== 导师列表网格 ===== */
@@ -324,13 +333,13 @@
                 <td>2026</td>
             </tr>
             <tr>
-                <td><strong>Cadmus</strong></td>
+                <td><strong>Cadmus <sup>^</sup></strong></td>
                 <td><em>Semele</em></td>
                 <td>Lamont Opera Theatre</td>
                 <td>2025</td>
             </tr>
             <tr>
-                <td><strong>Somnus</strong></td>
+                <td><strong>Somnus <sup>^</sup></strong></td>
                 <td><em>Semele</em></td>
                 <td>Lamont Opera Theatre</td>
                 <td>2025</td>
@@ -342,7 +351,7 @@
                 <td>2025</td>
             </tr>
             <tr>
-                <td><strong>Sorceress</strong></td>
+                <td><strong>Sorceress <sup>^</sup></strong></td>
                 <td><em>Dido and Aeneas</em></td>
                 <td>Lamont Opera Theatre</td>
                 <td>2024</td>
@@ -361,6 +370,7 @@
             </tr>
         </tbody>
     </table>
+    <div class="role-note">^ Cover</div>
 
     <h3>Concert & Solo Performances</h3>
     <ul>
@@ -457,6 +467,10 @@
     <h3>Festivals & Programs</h3>
     <ul>
         <li>
+            <span>Prague Summer Nights Young Artists Music Festival</span>
+            <span class="year">2026</span>
+        </li>
+        <li>
             <span>National Arts Fund Project, National Centre for the Performing Arts</span>
             <span class="year">2024</span>
         </li>
@@ -475,6 +489,22 @@
         <li>
             <span>Jinan International Music Festival, Shandong Grand Theatre</span>
             <span class="year">2019</span>
+        </li>
+    </ul>
+
+<h3>Masterclasses</h3>
+    <ul>
+        <li>
+            <span>Vera Lúcia Calábria, <em>Denver Lyric Opera Guild</em></span>
+            <span class="year">2026</span>
+        </li>
+        <li>
+            <span>Cherity Koepke, <em>Lamont School of Music</em></span>
+            <span class="year">2025</span>
+        </li>
+        <li>
+            <span>Ryan McKinny, <em>Lamont School of Music</em></span>
+            <span class="year">2024</span>
         </li>
     </ul>
 
