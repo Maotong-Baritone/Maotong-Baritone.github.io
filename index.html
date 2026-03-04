@@ -31,23 +31,15 @@
     .mobile-hero-banner {
       display: block; /* 手机上显示 */
       width: 100%;
-      
-      /* === 修改点 1：大幅增加高度 === */
-      height: 50vh; /* 占据屏幕高度的 50%，确保竖图能显示更多内容 */
-      /* =========================== */
-      
+      height: 45vh; /* 占据屏幕高度的 45% */
       object-fit: cover;
-      
-      /* === 修改点 2：调整对焦点 === */
-      object-position: 50% 20%; /* 重点显示照片靠上的部分（脸部），防止切头 */
-      /* =========================== */
-      
+      object-position: 50% 20%; 
       filter: saturate(0.8) contrast(1.1);
       opacity: 0.7;
-      margin-top: -4rem; 
-      padding-bottom: 4rem; 
-      mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-      -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+      margin-top: -1rem; 
+      padding-bottom: 2rem; 
+      mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
     }
 
     /* --- 2. 电脑端侧边固定图 (默认隐藏) --- */
@@ -67,8 +59,8 @@
     .hero-left {
       left: 0;
       background-image: url('image/photo_left.jpg'); 
-      -webkit-mask-image: linear-gradient(to right, black 10%, transparent 100%);
-      mask-image: linear-gradient(to right, black 10%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, black 20%, transparent 100%);
+      mask-image: linear-gradient(to right, black 20%, transparent 100%);
       opacity: 0; 
       animation: heroEnterLeft 2s ease-out forwards;
     }
@@ -144,9 +136,7 @@
       box-shadow: 0 10px 30px rgba(0,0,0,0.5);
       margin-bottom: 1.5rem;
       
-      /* === 修改点 3：调整负边距 === */
-      margin-top: -160px; /* 因为背景图变高了，需要把头像往上提更多，让重叠更明显 */
-      /* =========================== */
+      margin-top: -120px; /* 调整为更温和的重叠 */
       
       position: relative;
       z-index: 2; 
@@ -177,9 +167,9 @@
     }
 
     /* =========================================
-       关键媒体查询：电脑端的切换逻辑
+       关键媒体查询：电脑端的切换逻辑 (统一为 1024px)
        ========================================= */
-    @media (min-width: 1000px) {
+    @media (min-width: 1024px) {
       /* 1. 电脑上显示侧边固定图 */
       .side-hero-desktop {
         display: block;

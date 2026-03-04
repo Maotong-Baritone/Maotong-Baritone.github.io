@@ -65,13 +65,27 @@
       left: 0;
     }
 
-    /* ===== 侧边照片样式 (仅电脑端) ===== */
+    /* --- 1. 手机端横幅 (简历页新增) --- */
+    .mobile-hero-banner {
+      display: block; /* 手机上显示 */
+      width: 100%;
+      height: 40vh; /* 稍微调低一点，给文字留空间 */
+      object-fit: cover;
+      object-position: center 20%;
+      filter: saturate(0.8) contrast(1.1);
+      opacity: 0.7;
+      margin-top: -1rem; /* 稍微上移与导航栏衔接 */
+      mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    }
+
+    /* --- 2. 电脑端侧边固定图 --- */
     .side-hero-desktop {
-      display: none; /* 默认手机上隐藏 */
+      display: none; /* 默认隐藏 */
       position: fixed;
       top: 0;
       bottom: 0;
-      width: 42vw;
+      width: 35vw; /* 稍微调宽一点，增加视觉冲击 */
       z-index: 0;
       background-size: cover;
       background-position: center 20%;
@@ -82,8 +96,8 @@
     .resume-side-photo {
       left: 0;
       background-image: url('headshot6.png'); 
-      -webkit-mask-image: linear-gradient(to right, black 50%, transparent 100%);
-      mask-image: linear-gradient(to right, black 50%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, black 60%, transparent 100%);
+      mask-image: linear-gradient(to right, black 60%, transparent 100%);
       opacity: 0; 
       animation: heroEnterLeft 1.5s ease-out forwards;
     }
@@ -96,24 +110,29 @@
     /* ===== 简历纸张容器 ===== */
     .resume-paper {
       max-width: 850px;
-      margin: 3rem auto 4rem auto;
+      margin: -2rem auto 4rem auto; /* 在手机上利用负边距向上提，与背景图重叠 */
       background-color: var(--paper-bg);
-      padding: 4rem 3rem;
+      padding: 3rem 2rem;
       border-radius: 2px;
       box-shadow: 0 20px 50px rgba(0,0,0,0.5);
       position: relative;
       animation: slideUp 0.8s ease-out;
-      z-index: 1; /* 确保简历在照片上方 */
+      z-index: 1; 
     }
 
-    /* 宽屏下的分栏布局调整 */
-    @media (min-width: 1200px) {
+    /* 宽屏下的分栏布局调整 (统一断点为 1024px) */
+    @media (min-width: 1024px) {
         .side-hero-desktop {
             display: block;
         }
+        .mobile-hero-banner {
+            display: none; /* 电脑上隐藏手机横幅 */
+        }
         .resume-paper {
-            margin-left: 45vw; /* 将内容向右推，留出左侧照片空间 */
+            margin-left: 38vw; 
             margin-right: 5vw;
+            margin-top: 4rem; /* 电脑上恢复正常的顶部间距 */
+            padding: 4rem 3rem;
         }
     }
     
@@ -338,6 +357,8 @@
     <a href="resume.html">Résumé</a>
     <a href="contact.html">Contact</a>
   </nav>
+
+  <img src="headshot6.png" alt="Maotong Yu" class="mobile-hero-banner">
 
   <div class="resume-paper">
     <header class="resume-header">
