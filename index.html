@@ -244,13 +244,27 @@
       font-size: 1.05rem;
       text-align: justify;
     }
+
+    /* 艺术哲学高亮样式 */
+    .philosophy-quote {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.25rem;
+      color: #6b2c2c;
+      border-left: 3px solid var(--primary-gold);
+      padding-left: 1.5rem;
+      margin: 2.5rem 0;
+      line-height: 1.6;
+      position: relative;
+    }
+    
     em {
       color: #6b2c2c;
       font-family: 'Playfair Display', serif;
       font-weight: 600;
     }
 
-    /* ===== Table ===== */
+    /* ===== Table & Card Optimization ===== */
     table {
       width: 100%;
       border-collapse: separate;
@@ -278,6 +292,52 @@
       color: #333;
       font-family: 'Playfair Display', serif;
     }
+
+    /* 移动端表格转卡片 */
+    @media (max-width: 768px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+      thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+      }
+      tr {
+        margin-bottom: 1.5rem;
+        border: 1px solid #eee;
+        border-radius: 4px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      }
+      td {
+        border: none;
+        padding-left: 50%;
+        position: relative;
+        text-align: right;
+        min-height: 1.5rem;
+        border-bottom: 1px solid #f9f9f9;
+      }
+      td:last-child {
+        border-bottom: none;
+        text-align: center;
+        padding: 1rem;
+      }
+      td:before {
+        position: absolute;
+        left: 1rem;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+        color: var(--primary-gold);
+        content: attr(data-label);
+        font-family: 'Playfair Display', serif;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+      }
+    }
+
     a.button-link {
       padding: 0.5rem 1.2rem;
       background-color: transparent;
@@ -296,13 +356,15 @@
       border-color: var(--text-main);
     }
 
-    /* ===== Gallery ===== */
+    /* ===== Gallery Optimization ===== */
     .scroll-gallery {
       display: flex;
       overflow-x: auto;
       gap: 1.5rem;
-      padding: 1rem 0 2rem 0;
+      padding: 1rem 0 2.5rem 0;
       scroll-behavior: smooth;
+      scroll-snap-type: x mandatory; /* 滚动捕捉 */
+      -webkit-overflow-scrolling: touch;
     }
     .scroll-gallery::-webkit-scrollbar {
       height: 6px;
@@ -320,12 +382,17 @@
       box-shadow: 0 6px 12px rgba(0,0,0,0.15);
       transition: all 0.4s ease;
       filter: grayscale(20%);
+      scroll-snap-align: center; /* 居中对齐 */
     }
-    .scroll-gallery img:hover {
-      transform: scale(1.03);
-      filter: grayscale(0%);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.25);
-      border-color: var(--primary-gold);
+
+    @media (max-width: 600px) {
+      section {
+        padding: 2rem 1.5rem;
+      }
+      .scroll-gallery img {
+        width: 85vw; /* 手机上占据大部分屏幕宽度 */
+        height: 220px;
+      }
     }
 
     /* ===== Footer ===== */
@@ -374,13 +441,14 @@
 
     <p>Originally trained in vocal pedagogy at the Tianjin Conservatory of Music—where he earned both his Bachelor's and Master's degrees—he later completed a Vocal Performance Certificate at the Lamont School of Music in the 2024–2025 academic year, and will earn his Master of Music in Vocal Performance at the Lamont School of Music in 2027. He studies under Matthew Plenk and works closely with vocal coaches Dr. Beth Nielsen and Sahar Nouri, as well as conductors Sahar Nouri and Catherine Sailer, gaining substantial performance and collaborative experience.</p>
 
-    <p>Maotong Yu's artistic philosophy emphasizes expressive vocalism and emotional resonance, striving to integrate refined vocal technique with a deep musical sensibility in every performance. As a high baritone, he is also drawn to exploring demanding contemporary repertoire, including roles such as Oppenheimer in <em>John Adams's Dr. Atomic</em> and Prospero in <em>Thomas Adès's The Tempest</em>. Through these challenges, he continues to expand his vocal capabilities while pursuing greater dramatic depth and artistic breadth.</p>
+    <p class="philosophy-quote">Maotong Yu's artistic philosophy emphasizes expressive vocalism and emotional resonance, striving to integrate refined vocal technique with a deep musical sensibility in every performance. As a high baritone, he is also drawn to exploring demanding contemporary repertoire, including roles such as Oppenheimer in <em>John Adams's Dr. Atomic</em> and Prospero in <em>Thomas Adès's The Tempest</em>. Through these challenges, he continues to expand his vocal capabilities while pursuing greater dramatic depth and artistic breadth.</p>
 
     <p>Beyond performance, Yu is active in digital music initiatives. He developed the interactive game 
 <a href="https://maotong-baritone.itch.io/sonarium-eternum" target="_blank" rel="noopener noreferrer"><em>Sonarium Eternum</em></a> 
 and maintains a <a href="https://maotong.me/maotongmusic/" target="_blank" rel="noopener noreferrer">free online score library</a> 
 dedicated to the promotion and accessibility of Chinese classical music.
     </p>
+  </section>
 
   <section>
     <h2>Upcoming Performances</h2>
@@ -395,34 +463,34 @@ dedicated to the promotion and accessibility of Chinese classical music.
       </thead>
       <tbody>
         <tr>
-          <td>March 14, 2026<br><span style="font-size:0.85em; font-weight:normal;">3:00pm - 5:00pm</span></td>
-          <td>Schubert Mass No. 2 in G, Bass Solo</td>
-          <td>Wellshire Presbyterian Church</td>
-          <td style="text-align:center;"><a class="button-link" href="https://app.donorview.com/Event/EventInfo?prm=QX4Pon70lFgO6pLWlFKNim10AOQu5zoDAt7PnOph4vaH1vA9FHwIpvF2VjAjMhT2MRrpkWkstcaI0SLpwdGW9At7ZGiuSQCOSfijIMaYLIH1H1ZU_0ujkST1pt7sNvP3gDbxHYpl-PWEHdibMv5eqSbuIwQwD9EBIhbJnor31m2iex-XZkR5lXaLVYyjT5fanHHukDRWHieXWrVPNL_qEPysA_Ky-ffLLntyPhbAcMKqtD6g_W8mWgceXoaGjoC90" target="_blank">View</a></td>
+          <td data-label="Date">March 14, 2026<br><span style="font-size:0.85em; font-weight:normal;">3:00pm - 5:00pm</span></td>
+          <td data-label="Event">Schubert Mass No. 2 in G, Bass Solo</td>
+          <td data-label="Location">Wellshire Presbyterian Church</td>
+          <td data-label="Details" style="text-align:center;"><a class="button-link" href="https://app.donorview.com/Event/EventInfo?prm=QX4Pon70lFgO6pLWlFKNim10AOQu5zoDAt7PnOph4vaH1vA9FHwIpvF2VjAjMhT2MRrpkWkstcaI0SLpwdGW9At7ZGiuSQCOSfijIMaYLIH1H1ZU_0ujkST1pt7sNvP3gDbxHYpl-PWEHdibMv5eqSbuIwQwD9EBIhbJnor31m2iex-XZkR5lXaLVYyjT5fanHHukDRWHieXWrVPNL_qEPysA_Ky-ffLLntyPhbAcMKqtD6g_W8mWgceXoaGjoC90" target="_blank">View</a></td>
         </tr>
         <tr>
-          <td>March 15, 2026<br><span style="font-size:0.85em; font-weight:normal;">3:00pm - 5:00pm</span></td>
-          <td>Schubert Mass No. 2 in G, Bass Solo</td>
-          <td>Rockland Community Church</td>
-          <td style="text-align:center;"><a class="button-link" href="https://app.donorview.com/Event/EventInfo?prm=QX4Pon70lFgO6pLWlFKNim10AOQu5zoDAt7PnOph4vaH1vA9FHwIpvF2VjAjMhT2MRrpkWkstcaI0SLpwdGW9At7ZGiuSQCOSfijIMaYLIH8eprkSccdcdD917Y_KdGVcARBJFGD3xrA-yv8VNGNsZqyyQaO9_k8iE63ick3E_nJXjjGfKRR7Hx9OodqtxBt8WZ2OyyoiQOOoy1iPl-fUBDnz4CCTBmFolHuBWIJiTU3w1d0Xgs6or4Tne0g9XqF0" target="_blank">View</a></td>
+          <td data-label="Date">March 15, 2026<br><span style="font-size:0.85em; font-weight:normal;">3:00pm - 5:00pm</span></td>
+          <td data-label="Event">Schubert Mass No. 2 in G, Bass Solo</td>
+          <td data-label="Location">Rockland Community Church</td>
+          <td data-label="Details" style="text-align:center;"><a class="button-link" href="https://app.donorview.com/Event/EventInfo?prm=QX4Pon70lFgO6pLWlFKNim10AOQu5zoDAt7PnOph4vaH1vA9FHwIpvF2VjAjMhT2MRrpkWkstcaI0SLpwdGW9At7ZGiuSQCOSfijIMaYLIH8eprkSccdcdD917Y_KdGVcARBJFGD3xrA-yv8VNGNsZqyyQaO9_k8iE63ick3E_nJXjjGfKRR7Hx9OodqtxBt8WZ2OyyoiQOOoy1iPl-fUBDnz4CCTBmFolHuBWIJiTU3w1d0Xgs6or4Tne0g9XqF0" target="_blank">View</a></td>
         </tr>
         <tr>
-          <td>April 23, 2026<br><span style="font-size:0.85em; font-weight:normal;">7:30pm - 9:30pm</span></td>
-          <td>Lamont Opera Theatre: “Die Fledermaus”</td>
-          <td>Newman Center, Gates Concert Hall</td>
-          <td style="text-align:center;"><a class="button-link" href="https://liberalarts.du.edu/lamont/news-events/calendar/lamont-opera-theatre-presents-die-fledermaus" target="_blank">View</a></td>
+          <td data-label="Date">April 23, 2026<br><span style="font-size:0.85em; font-weight:normal;">7:30pm - 9:30pm</span></td>
+          <td data-label="Event">Lamont Opera Theatre: “Die Fledermaus”</td>
+          <td data-label="Location">Newman Center, Gates Concert Hall</td>
+          <td data-label="Details" style="text-align:center;"><a class="button-link" href="https://liberalarts.du.edu/lamont/news-events/calendar/lamont-opera-theatre-presents-die-fledermaus" target="_blank">View</a></td>
         </tr>
         <tr>
-          <td>April 25, 2026<br><span style="font-size:0.85em; font-weight:normal;">7:30pm - 9:30pm</span></td>
-          <td>Lamont Opera Theatre: “Die Fledermaus”</td>
-          <td>Newman Center, Gates Concert Hall</td>
-          <td style="text-align:center;"><a class="button-link" href="https://liberalarts.du.edu/lamont/news-events/calendar/lamont-opera-theatre-presents-die-fledermaus-2" target="_blank">View</a></td>
+          <td data-label="Date">April 25, 2026<br><span style="font-size:0.85em; font-weight:normal;">7:30pm - 9:30pm</span></td>
+          <td data-label="Event">Lamont Opera Theatre: “Die Fledermaus”</td>
+          <td data-label="Location">Newman Center, Gates Concert Hall</td>
+          <td data-label="Details" style="text-align:center;"><a class="button-link" href="https://liberalarts.du.edu/lamont/news-events/calendar/lamont-opera-theatre-presents-die-fledermaus-2" target="_blank">View</a></td>
         </tr>
         <tr>
-          <td>May 28, 2026<br><span style="font-size:0.85em; font-weight:normal;">7:30pm - 9:00pm</span></td>
-          <td>Opera Workshop</td>
-          <td>Newman Center, Hamilton Hall</td>
-          <td style="text-align:center;"><a class="button-link" href="https://liberalarts.du.edu/lamont/news-events/calendar/opera-workshop-5" target="_blank">View</a></td>
+          <td data-label="Date">May 28, 2026<br><span style="font-size:0.85em; font-weight:normal;">7:30pm - 9:00pm</span></td>
+          <td data-label="Event">Opera Workshop</td>
+          <td data-label="Location">Newman Center, Hamilton Hall</td>
+          <td data-label="Details" style="text-align:center;"><a class="button-link" href="https://liberalarts.du.edu/lamont/news-events/calendar/opera-workshop-5" target="_blank">View</a></td>
         </tr>
       </tbody>
     </table>
