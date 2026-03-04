@@ -65,16 +65,56 @@
       left: 0;
     }
 
+    /* ===== 侧边照片样式 (仅电脑端) ===== */
+    .side-hero-desktop {
+      display: none; /* 默认手机上隐藏 */
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      width: 42vw;
+      z-index: 0;
+      background-size: cover;
+      background-position: center 20%;
+      background-repeat: no-repeat;
+      filter: saturate(0.9) contrast(1.05);
+    }
+
+    .resume-side-photo {
+      left: 0;
+      background-image: url('headshot6.png'); 
+      -webkit-mask-image: linear-gradient(to right, black 50%, transparent 100%);
+      mask-image: linear-gradient(to right, black 50%, transparent 100%);
+      opacity: 0; 
+      animation: heroEnterLeft 1.5s ease-out forwards;
+    }
+
+    @keyframes heroEnterLeft {
+      0% { opacity: 0; transform: translateX(-50px); }
+      100% { opacity: 0.85; transform: translateX(0); }
+    }
+
     /* ===== 简历纸张容器 ===== */
     .resume-paper {
-      max-width: 900px;
+      max-width: 850px;
       margin: 3rem auto 4rem auto;
       background-color: var(--paper-bg);
-      padding: 4rem 3rem; /* 宽敞的内边距 */
+      padding: 4rem 3rem;
       border-radius: 2px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.5); /* 强烈的阴影提升立体感 */
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
       position: relative;
       animation: slideUp 0.8s ease-out;
+      z-index: 1; /* 确保简历在照片上方 */
+    }
+
+    /* 宽屏下的分栏布局调整 */
+    @media (min-width: 1200px) {
+        .side-hero-desktop {
+            display: block;
+        }
+        .resume-paper {
+            margin-left: 45vw; /* 将内容向右推，留出左侧照片空间 */
+            margin-right: 5vw;
+        }
     }
     
     /* 顶部装饰金线 */
@@ -291,6 +331,7 @@
   </style>
 </head>
 <body>
+  <div class="side-hero-desktop resume-side-photo"></div>
   <nav>
     <a href="index.html">Home</a>
     <a href="media.html">Media</a>
