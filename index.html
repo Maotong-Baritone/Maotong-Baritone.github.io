@@ -13,6 +13,12 @@
       --text-muted: #5a4a42;
     }
 
+    /* 语言切换控制 */
+    .zh { display: none; }
+    body.lang-zh .zh { display: inline; }
+    body.lang-zh .en { display: none; }
+    #lang-switch { cursor: pointer; font-weight: bold !important; color: var(--primary-gold) !important; }
+
     body {
       margin: 0;
       font-family: 'Lato', sans-serif;
@@ -421,71 +427,83 @@
   <div class="side-hero-desktop hero-left"></div>
 
   <nav>
-    <a href="index.html">Home</a>
-    <a href="media.html">Media</a>
-    <a href="resume.html">Résumé</a>
-    <a href="contact.html">Contact</a>
+    <a href="index.html"><span class="en">Home</span><span class="zh">首页</span></a>
+    <a href="media.html"><span class="en">Media</span><span class="zh">媒体</span></a>
+    <a href="resume.html"><span class="en">Résumé</span><span class="zh">简历</span></a>
+    <a href="contact.html"><span class="en">Contact</span><span class="zh">联系</span></a>
+    <a id="lang-switch">中文</a>
   </nav>
 
   <header>
     <img src="image/photo_left.jpg" alt="Stage appearance" class="mobile-hero-banner">
 
     <img src="profile_photo.jpg" alt="Maotong Yu Portrait" class="avatar">
-    <h1>Maotong Yu</h1>
-    <p>Baritone</p>
+    <h1><span class="en">Maotong Yu</span><span class="zh">于茂同</span></h1>
+    <p><span class="en">Baritone</span><span class="zh">男中音</span></p>
   </header>
 
   <section>
-    <h2>Biography</h2>
-    <p>Maotong Yu is a baritone whose work spans opera, concert repertoire, and art song. He appeared in the title role of <em>Puccini's Gianni Schicchi</em> at the Lamont School of Music in 2025 and is scheduled to perform the role of Dr. Falke in <em>Johann Strauss II's Die Fledermaus</em> in 2026.</p>
+    <h2><span class="en">Biography</span><span class="zh">个人简介</span></h2>
+    <p>
+      <span class="en">Maotong Yu is a baritone whose work spans opera, concert repertoire, and art song. He appeared in the title role of <em>Puccini's Gianni Schicchi</em> at the Lamont School of Music in 2025 and is scheduled to perform the role of Dr. Falke in <em>Johann Strauss II's Die Fledermaus</em> in 2026.</span>
+      <span class="zh">于茂同是一位男中音，其演出领域广泛涵盖歌剧、音乐会曲目及艺术歌曲。2025年，他在拉蒙特音乐学院（Lamont School of Music）排演的普契尼歌剧《贾尼·斯基基》（Gianni Schicchi）中饰演标题角色，并计划于2026年在小约翰·施特劳斯的歌剧《蝙蝠》（Die Fledermaus）中出演法尔克（Dr. Falke）一角。</span>
+    </p>
 
-    <p>Originally trained in vocal pedagogy at the Tianjin Conservatory of Music—where he earned both his Bachelor's and Master's degrees—he later completed a Vocal Performance Certificate at the Lamont School of Music in the 2024–2025 academic year, and will earn his Master of Music in Vocal Performance at the Lamont School of Music in 2027. He studies under Matthew Plenk and works closely with vocal coaches Dr. Beth Nielsen and Sahar Nouri, as well as conductors Sahar Nouri and Catherine Sailer, gaining substantial performance and collaborative experience.</p>
+    <p>
+      <span class="en">Originally trained in vocal pedagogy at the Tianjin Conservatory of Music—where he earned both his Bachelor's and Master's degrees—he later completed a Vocal Performance Certificate at the Lamont School of Music in the 2024–2025 academic year, and will earn his Master of Music in Vocal Performance at the Lamont School of Music in 2027. He studies under Matthew Plenk and works closely with vocal coaches Dr. Beth Nielsen and Sahar Nouri, as well as conductors Sahar Nouri and Catherine Sailer, gaining substantial performance and collaborative experience.</span>
+      <span class="zh">他早年于天津音乐学院接受声乐教学专业的系统训练，并先后取得学士与硕士学位。此后，他在2024至2025学年于拉蒙特音乐学院获得了演奏家文凭，并预计将于2027年在该校获得声乐表演音乐硕士学位。他师从马修·普伦克（Matthew Plenk），并与声乐指导贝丝·尼尔森博士（Dr. Beth Nielsen）以及指挥家萨哈尔·努里（Sahar Nouri）和凯瑟琳·塞勒（Catherine Sailer）保持着密切合作，积累了丰富的舞台演出与合作经验。</span>
+    </p>
 
-    <p class="philosophy-quote">Maotong Yu's artistic philosophy emphasizes expressive vocalism and emotional resonance, striving to integrate refined vocal technique with a deep musical sensibility in every performance. As a high baritone, he is also drawn to exploring demanding contemporary repertoire, including roles such as Oppenheimer in <em>John Adams's Dr. Atomic</em> and Prospero in <em>Thomas Adès's The Tempest</em>. Through these challenges, he continues to expand his vocal capabilities while pursuing greater dramatic depth and artistic breadth.</p>
+    <p class="philosophy-quote">
+      <span class="en">Maotong Yu's artistic philosophy emphasizes expressive vocalism and emotional resonance, striving to integrate refined vocal technique with a deep musical sensibility in every performance. As a high baritone, he is also drawn to exploring demanding contemporary repertoire, including roles such as Oppenheimer in <em>John Adams's Dr. Atomic</em> and Prospero in <em>Thomas Adès's The Tempest</em>. Through these challenges, he continues to expand his vocal capabilities while pursuing greater dramatic depth and artistic breadth.</span>
+      <span class="zh">于茂同的艺术理念强调富有表现力的演唱与情感共鸣，致力于在每一次表演中将精湛的声乐技巧与深厚的音乐感悟力融为一体。作为一名高男中音，他也十分热衷于探索极具挑战性的当代歌剧曲目，例如约翰·亚当斯（John Adams）《原子博士》（Dr. Atomic）中的奥本海默（Oppenheimer），以及托马斯·阿德斯（Thomas Adès）《暴风雨》（The Tempest）中的普罗斯佩罗（Prospero）。通过迎接这些挑战，他不断拓展自身的声乐潜能，同时追求更深层的戏剧张力与更广阔的艺术境界。</span>
+    </p>
 
-    <p>Beyond performance, Yu is active in digital music initiatives. He developed the interactive game 
+    <p>
+      <span class="en">Beyond performance, Yu is active in digital music initiatives. He developed the interactive game 
 <a href="https://maotong-baritone.itch.io/sonarium-eternum" target="_blank" rel="noopener noreferrer"><em>Sonarium Eternum</em></a> 
 and maintains a <a href="https://maotong.me/maotongmusic/" target="_blank" rel="noopener noreferrer">free online score library</a> 
-dedicated to the promotion and accessibility of Chinese classical music.
+dedicated to the promotion and accessibility of Chinese classical music.</span>
+      <span class="zh">在舞台演出之外，于茂同还积极投身于数字音乐项目。他开发了一款名为 <a href="https://maotong-baritone.itch.io/sonarium-eternum" target="_blank" rel="noopener noreferrer"><em>Sonarium Eternum</em></a>的互动游戏，并维护着一个<a href="https://maotong.me/maotongmusic/" target="_blank" rel="noopener noreferrer">免费在线乐谱库</a>，致力于推动中国古典音乐的传播与普及。</span>
     </p>
   </section>
 
   <section>
-    <h2>Upcoming Performances</h2>
+    <h2><span class="en">Upcoming Performances</span><span class="zh">近期演出</span></h2>
     <table>
       <thead>
         <tr>
-          <th>Date</th>
-          <th>Event</th>
-          <th>Location</th>
-          <th style="text-align:center;">Details</th>
+          <th><span class="en">Date</span><span class="zh">日期</span></th>
+          <th><span class="en">Event</span><span class="zh">活动</span></th>
+          <th><span class="en">Location</span><span class="zh">地点</span></th>
+          <th style="text-align:center;"><span class="en">Details</span><span class="zh">详情</span></th>
         </tr>
       </thead>
       <tbody>
          <tr>
-          <td data-label="Date">April 23, 2026<br><span style="font-size:0.85em; font-weight:normal;">7:30pm - 9:30pm</span></td>
-          <td data-label="Event">Lamont Opera Theatre: “Die Fledermaus”</td>
-          <td data-label="Location">Newman Center, Gates Concert Hall</td>
-          <td data-label="Details" style="text-align:center;"><a class="button-link" href="https://liberalarts.du.edu/lamont/news-events/calendar/lamont-opera-theatre-presents-die-fledermaus" target="_blank">View</a></td>
+          <td data-label="Date"><span class="en">April 23, 2026</span><span class="zh">2026年4月23日</span><br><span style="font-size:0.85em; font-weight:normal;">7:30pm - 9:30pm</span></td>
+          <td data-label="Event"><span class="en">Lamont Opera Theatre: “Die Fledermaus”</span><span class="zh">拉蒙特歌剧院：《蝙蝠》</span></td>
+          <td data-label="Location"><span class="en">Newman Center, Gates Concert Hall</span><span class="zh">纽曼中心，盖茨音乐厅</span></td>
+          <td data-label="Details" style="text-align:center;"><a class="button-link" href="https://liberalarts.du.edu/lamont/news-events/calendar/lamont-opera-theatre-presents-die-fledermaus" target="_blank"><span class="en">View</span><span class="zh">查看</span></a></td>
         </tr>
         <tr>
-          <td data-label="Date">April 25, 2026<br><span style="font-size:0.85em; font-weight:normal;">7:30pm - 9:30pm</span></td>
-          <td data-label="Event">Lamont Opera Theatre: “Die Fledermaus”</td>
-          <td data-label="Location">Newman Center, Gates Concert Hall</td>
-          <td data-label="Details" style="text-align:center;"><a class="button-link" href="https://liberalarts.du.edu/lamont/news-events/calendar/lamont-opera-theatre-presents-die-fledermaus-2" target="_blank">View</a></td>
+          <td data-label="Date"><span class="en">April 25, 2026</span><span class="zh">2026年4月25日</span><br><span style="font-size:0.85em; font-weight:normal;">7:30pm - 9:30pm</span></td>
+          <td data-label="Event"><span class="en">Lamont Opera Theatre: “Die Fledermaus”</span><span class="zh">拉蒙特歌剧院：《蝙蝠》</span></td>
+          <td data-label="Location"><span class="en">Newman Center, Gates Concert Hall</span><span class="zh">纽曼中心，盖茨音乐厅</span></td>
+          <td data-label="Details" style="text-align:center;"><a class="button-link" href="https://liberalarts.du.edu/lamont/news-events/calendar/lamont-opera-theatre-presents-die-fledermaus-2" target="_blank"><span class="en">View</span><span class="zh">查看</span></a></td>
         </tr>
         <tr>
-          <td data-label="Date">May 28, 2026<br><span style="font-size:0.85em; font-weight:normal;">7:30pm - 9:00pm</span></td>
-          <td data-label="Event">Opera Workshop</td>
-          <td data-label="Location">Newman Center, Hamilton Hall</td>
-          <td data-label="Details" style="text-align:center;"><a class="button-link" href="https://liberalarts.du.edu/lamont/news-events/calendar/opera-workshop-5" target="_blank">View</a></td>
+          <td data-label="Date"><span class="en">May 28, 2026</span><span class="zh">2026年5月28日</span><br><span style="font-size:0.85em; font-weight:normal;">7:30pm - 9:00pm</span></td>
+          <td data-label="Event"><span class="en">Opera Workshop</span><span class="zh">歌剧工作坊</span></td>
+          <td data-label="Location"><span class="en">Newman Center, Hamilton Hall</span><span class="zh">纽曼中心，汉密尔顿音乐厅</span></td>
+          <td data-label="Details" style="text-align:center;"><a class="button-link" href="https://liberalarts.du.edu/lamont/news-events/calendar/opera-workshop-5" target="_blank"><span class="en">View</span><span class="zh">查看</span></a></td>
         </tr>
       </tbody>
     </table>
   </section>
 
   <section>
-    <h2>Photo Gallery</h2>
+    <h2><span class="en">Photo Gallery</span><span class="zh">照片墙</span></h2>
     <div class="scroll-gallery">
       <img src="image/photo1.jpg" alt="Performance 1">
       <img src="image/photo2.jpg" alt="Performance 2">
@@ -499,6 +517,8 @@ dedicated to the promotion and accessibility of Chinese classical music.
     </div>
   </section>
 
-  <footer>&copy; 2026 Maotong Yu | Baritone</footer>
+  <footer>&copy; 2026 <span class="en">Maotong Yu | Baritone</span><span class="zh">于茂同 | 男中音</span></footer>
+
+  <script src="lang-switch.js"></script>
 </body>
 </html>

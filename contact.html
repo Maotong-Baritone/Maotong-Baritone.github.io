@@ -13,6 +13,12 @@
       --text-muted: #5a4a42;
     }
 
+    /* 语言切换控制 */
+    .zh { display: none; }
+    body.lang-zh .zh { display: inline; }
+    body.lang-zh .en { display: none; }
+    #lang-switch { cursor: pointer; font-weight: bold !important; color: var(--primary-gold) !important; }
+
     body {
       margin: 0;
       font-family: 'Lato', sans-serif;
@@ -237,16 +243,20 @@
 </head>
 <body>
   <nav>
-    <a href="index.html">Home</a>
-    <a href="media.html">Media</a>
-    <a href="resume.html">Résumé</a>
-    <a href="contact.html">Contact</a>
+    <a href="index.html"><span class="en">Home</span><span class="zh">首页</span></a>
+    <a href="media.html"><span class="en">Media</span><span class="zh">媒体</span></a>
+    <a href="resume.html"><span class="en">Résumé</span><span class="zh">简历</span></a>
+    <a href="contact.html"><span class="en">Contact</span><span class="zh">联系</span></a>
+    <a id="lang-switch">中文</a>
   </nav>
 
   <main>
     <section class="contact-card">
-      <h2>Get in Touch</h2>
-      <p class="subtitle">Available for Opera, Concerts, and Recitals</p>
+      <h2><span class="en">Get in Touch</span><span class="zh">联系我</span></h2>
+      <p class="subtitle">
+        <span class="en">Available for Opera, Concerts, and Recitals</span>
+        <span class="zh">可承接歌剧、音乐会及独唱会演出</span>
+      </p>
 
       <div class="contact-info">
         <div class="contact-item">
@@ -265,7 +275,7 @@
       </div>
 
       <div class="social-section">
-        <span class="social-title">Follow My Journey</span>
+        <span class="social-title"><span class="en">Follow My Journey</span><span class="zh">关注我的动态</span></span>
         <div class="social-buttons">
             <a href="https://instagram.com/maotong.yu" target="_blank" class="social-btn">
                 <svg viewBox="0 0 24 24">
@@ -285,6 +295,8 @@
     </section>
   </main>
 
-  <footer>&copy; 2026 Maotong Yu | Baritone</footer>
+  <footer>&copy; 2026 <span class="en">Maotong Yu | Baritone</span><span class="zh">于茂通 | 男中音</span></footer>
+
+  <script src="lang-switch.js"></script>
 </body>
 </html>

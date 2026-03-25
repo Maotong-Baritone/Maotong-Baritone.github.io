@@ -13,6 +13,12 @@
       --text-muted: #5a4a42;
     }
 
+    /* 语言切换控制 */
+    .zh { display: none; }
+    body.lang-zh .zh { display: inline; }
+    body.lang-zh .en { display: none; }
+    #lang-switch { cursor: pointer; font-weight: bold !important; color: var(--primary-gold) !important; }
+
     body {
       margin: 0;
       font-family: 'Lato', sans-serif;
@@ -352,33 +358,34 @@
 <body>
   <div class="side-hero-desktop resume-side-photo"></div>
   <nav>
-    <a href="index.html">Home</a>
-    <a href="media.html">Media</a>
-    <a href="resume.html">Résumé</a>
-    <a href="contact.html">Contact</a>
+    <a href="index.html"><span class="en">Home</span><span class="zh">首页</span></a>
+    <a href="media.html"><span class="en">Media</span><span class="zh">媒体</span></a>
+    <a href="resume.html"><span class="en">Résumé</span><span class="zh">简历</span></a>
+    <a href="contact.html"><span class="en">Contact</span><span class="zh">联系</span></a>
+    <a id="lang-switch">中文</a>
   </nav>
 
   <img src="headshot6.png" alt="Maotong Yu" class="mobile-hero-banner">
 
   <div class="resume-paper">
     <header class="resume-header">
-        <h1>Maotong Yu</h1>
+        <h1><span class="en">Maotong Yu</span><span class="zh">于茂同</span></h1>
         <div class="contact-info">
-            <span>Baritone</span>
+            <span><span class="en">Baritone</span><span class="zh">男中音</span></span>
             <span>+1 (303) 217-6852</span>
             <span>yumaotong0613@gmail.com</span>
-            <span>Denver, CO</span>
+            <span><span class="en">Denver, CO</span><span class="zh">丹佛，科罗拉多州</span></span>
         </div>
     </header>
 
-    <h3>Performance Experience: Roles</h3>
+    <h3><span class="en">Performance Experience: Roles</span><span class="zh">舞台演出经历：歌剧角色</span></h3>
     <table class="roles-table">
         <thead>
             <tr>
-                <th style="width: 25%">Role</th>
-                <th style="width: 30%">Production</th>
-                <th style="width: 35%">Company/Venue</th>
-                <th style="width: 10%; text-align:right;">Year</th>
+                <th style="width: 25%"><span class="en">Role</span><span class="zh">角色</span></th>
+                <th style="width: 30%"><span class="en">Production</span><span class="zh">剧目</span></th>
+                <th style="width: 35%"><span class="en">Company/Venue</span><span class="zh">剧院/地点</span></th>
+                <th style="width: 10%; text-align:right;"><span class="en">Year</span><span class="zh">年份</span></th>
             </tr>
         </thead>
         <tbody>
@@ -432,154 +439,154 @@
             </tr>
         </tbody>
     </table>
-    <div class="role-note">^ Cover</div>
+    <div class="role-note"><span class="en">^ Cover</span><span class="zh">^ 替补 (Cover)</span></div>
 
-    <h3>Concert & Solo Performances</h3>
+    <h3><span class="en">Concert & Solo Performances</span><span class="zh">音乐会与独唱演出</span></h3>
     <ul>
         <li>
-            <span>Baritone Soloist, "The trumpet shall sound" from <em>Messiah</em>, Wellshire Presbyterian Church</span>
+            <span><span class="en">Baritone Soloist, "The trumpet shall sound" from <em>Messiah</em>, Wellshire Presbyterian Church</span><span class="zh">男中音独唱，《弥赛亚》选段“号角即将吹响” (The trumpet shall sound)，威尔夏长老会教堂 (Wellshire Presbyterian Church)</span></span>
             <span class="year">2026</span>
         </li>
         <li>
-            <span>Baritone Soloist, <em>Schubert Mass No. 2 in G, D 167</em>, Wellshire Presbyterian Church＆Rockland Community Church</span>
+            <span><span class="en">Baritone Soloist, <em>Schubert Mass No. 2 in G, D 167</em>, Wellshire Presbyterian Church＆Rockland Community Church</span><span class="zh">男中音独唱，舒伯特《G大调第二弥撒》，威尔夏长老会教堂 & 罗克兰社区教堂 (Rockland Community Church)</span></span>
             <span class="year">2026</span>
         </li>
         <li>
-            <span>Baritone Soloist, <em>Deutsche Requiem</em> <sup>^</sup>, Lamont Opera Theatre, University of Denver</span>
+            <span><span class="en">Baritone Soloist, <em>Deutsche Requiem</em> <sup>^</sup>, Lamont Opera Theatre, University of Denver</span><span class="zh">男中音独唱，勃拉姆斯《德意志安魂曲》<sup>^</sup>，丹佛大学拉蒙特歌剧院</span></span>
             <span class="year">2026</span>
         </li>
         <li>
-            <span>Baritone Soloist, <em>Bach Cantata BWV 61</em>, Wellshire Presbyterian Church</span>
+            <span><span class="en">Baritone Soloist, <em>Bach Cantata BWV 61</em>, 威尔夏长老会教堂 (Wellshire Presbyterian Church)</span><span class="zh">男中音独唱，巴赫《康塔塔 BWV 61》，Wellshire Presbyterian Church</span></span>
             <span class="year">2025</span>
         </li>
         <li>
-            <span>Baritone Soloist, <em>Outstanding Student Concert</em>, Tianjin Concert Hall</span>
+            <span><span class="en">Baritone Soloist, <em>Outstanding Student Concert</em>, Tianjin Concert Hall</span><span class="zh">男中音独唱，“优秀学生”音乐会，天津音乐厅</span></span>
             <span class="year">2023</span>
         </li>
         <li>
-            <span>Baritone Soloist, <em>Tchaikovsky Night Concert</em>, Tianjin Concert Hall</span>
+            <span><span class="en">Baritone Soloist, <em>Tchaikovsky Night Concert</em>, Tianjin Concert Hall</span><span class="zh">男中音独唱，“柴可夫斯基之夜”音乐会，天津音乐厅</span></span>
             <span class="year">2023</span>
         </li>
     </ul>
-    <div class="role-note">^ Understudy</div>
+    <div class="role-note"><span class="en">^ Understudy</span><span class="zh">^ B角 (Understudy)</span></div>
 
-    <h3>Choral & Ensemble</h3>
+    <h3><span class="en">Choral & Ensemble</span><span class="zh">合唱与室内乐演出</span></h3>
     <ul>
         <li>
-            <span><em>Voice of My People, M. Roger Holland Spirituals Project</em>, with Evergreen Chorale＆Lone Tree Symphony</span>
+            <span><em>“吾民之声”——M. 罗杰·霍兰德黑人灵歌项目</em>, 参演于常青合唱团 (Evergreen Chorale) 与 孤树城交响乐团 (Lone Tree Symphony)</span>
             <span class="year">2026</span>
         </li>
         <li>
-            <span><em>Celebration of Glory Concert</em>, with Evergreen Chorale</span>
+            <span><em>荣耀颂赞音乐会 (Celebration of Glory Concert)</em>, 参演于常青合唱团</span>
             <span class="year">2026</span>
         </li>
         <li>
-            <span><em>Deutsche Requiem</em>,  Lamont Opera Theatre, University of Denver</span>
+            <span><em>勃拉姆斯《德意志安魂曲》</em>,  丹佛大学拉蒙特歌剧院</span>
             <span class="year">2026</span>
         </li>
         <li>
-            <span><em>Colorado Mountain Holiday Concert</em>, with Altezza chamber voices＆Evergreen Chamber Orchestra</span>
+            <span><em>科罗拉多高山假日音乐会</em>, 参演于Altezza室内合唱团 与 常青室内乐团 (Evergreen Chamber Orchestra)</span>
             <span class="year">2025</span>
         </li>
         <li>
-            <span><em>Season of Joy Concert</em>, with Evergreen Chorale</span>
+            <span><em>欢乐颂歌音乐会 (Season of Joy Concert)</em>, 参演于常青合唱团</span>
             <span class="year">2025</span>
         </li>
         <li>
-            <span><em>World Premiere of Taylor Scott Davis' To Sing of Love</em>, with Evergreen Chorale</span>
+            <span><em>泰勒·斯科特·戴维斯《歌唱爱》(To Sing of Love) 世界首演</em>, 参演于常青合唱团</span>
             <span class="year">2025</span>
         </li>
         <li>
-            <span><em>La Traviata</em>, Opera Chorus with Opera Colorado, Ellie Caulkins Opera House</span>
+            <span><em>《茶花女》(La Traviata)</em>, 科罗拉多歌剧院合唱团，艾莉·考尔金斯歌剧院 (Ellie Caulkins Opera House)</span>
             <span class="year">2025</span>
         </li>
         <li>
-            <span><em>Dracula Ballet</em>, with The Evans Choir & Colorado Ballet, Ellie Caulkins Opera House</span>
+            <span><em>芭蕾舞剧《德古拉》(Dracula Ballet)</em>, 参演于埃文斯合唱团 (The Evans Choir) 与科罗拉多芭蕾舞团，艾莉·考尔金斯歌剧院</span>
             <span class="year">2025</span>
         </li>
         <li>
-            <span><em>Beethoven Symphony No. 9</em>, with Evergreen Chorale＆Evergreen Chamber Orchestra</span>
+            <span><em>贝多芬《第九交响曲》</em>, 参演于常青合唱团 与 常青室内乐团</span>
             <span class="year">2025</span>
         </li>
         <li>
-            <span><em>Verdi Requiem</em>, Lamont Opera Theatre, University of Denver</span>
+            <span><em>威尔第《安魂曲》</em>, 丹佛大学拉蒙特歌剧院</span>
             <span class="year">2025</span>
         </li>
         <li>
-            <span><em>Staff Singer</em>, Wellshire Presbyterian Church Sanctuary Choir</span>
+            <span><em>驻堂歌手 (Staff Singer)</em>, 威尔夏长老会教堂圣所合唱团</span>
             <span class="year">2025 – Present</span>
         </li>
     </ul>
 
-    <h3>Education</h3>
+    <h3><span class="en">Education</span><span class="zh">教育背景</span></h3>
     <ul>
         <li>
-            <span><strong>Master of Music, Voice Performance</strong>, University of Denver, Lamont School of Music</span>
+            <span><strong><span class="en">Master of Music, Voice Performance</span><span class="zh">声乐表演硕士</span></strong>, <span class="en">University of Denver, Lamont School of Music</span><span class="zh">丹佛大学拉蒙特音乐学院</span></span>
             <span class="year">2025–2027</span>
         </li>
         <li>
-            <span><strong>Performance Certificate</strong>, University of Denver, Lamont School of Music</span>
+            <span><strong><span class="en">Performance Certificate</span><span class="zh">演奏家文凭<span></strong>, <span class="en">University of Denver, Lamont School of Music</span><span class="zh">丹佛大学拉蒙特音乐学院</span></span>
             <span class="year">2024–2025</span>
         </li>
         <li>
-            <span><strong>Master of Music, Music Education</strong>, Tianjin Conservatory of Music</span>
+            <span><strong><span class="en">Master of Music, Music Education</span><span class="zh">音乐教育硕士</span></strong>, <span class="en">Tianjin Conservatory of Music</span><span class="zh">天津音乐学院</span></span>
             <span class="year">2021–2024</span>
         </li>
         <li>
-            <span><strong>Bachelor of Music, Music Education</strong>, Tianjin Conservatory of Music</span>
+            <span><strong><span class="en">Bachelor of Music, Music Education</span><span class="zh">音乐教育学士</span></strong>, <span class="en">Tianjin Conservatory of Music</span><span class="zh">天津音乐学院</span></span>
             <span class="year">2017–2021</span>
         </li>
     </ul>
 
-    <h3>Honors & Awards</h3>
+    <h3><span class="en">Honors & Awards</span><span class="zh">荣誉与奖项</span></h3>
     <ul>
         <li>
-            <span>Denver Lyric Opera Guild Award</span>
+            <span><span class="en">Denver Lyric Opera Guild Award</span><span class="zh">丹佛抒情歌剧协会奖</span></span>
             <span class="year">2025</span>
         </li>
         <li>
-            <span>National Scholarship (Graduate)</span>
+            <span><span class="en">National Scholarship (Graduate)</span><span class="zh">研究生国家奖学金</span></span>
             <span class="year">2024</span>
         </li>
         <li>
-            <span>Outstanding Graduate Honor</span>
+            <span><span class="en">Outstanding Graduate Honor</span><span class="zh">优秀毕业生称号</span></span>
             <span class="year">2024</span>
         </li>
         <li>
-            <span>Outstanding Student Honor (Graduate)</span>
+            <span><span class="en">Outstanding Student Honor (Graduate)</span><span class="zh">优秀学生称号</span></span>
             <span class="year">2023</span>
         </li>
     </ul>
 
-    <h3>Festivals & Programs</h3>
+    <h3><span class="en">Festivals & Programs</span><span class="zh">音乐节与艺术项目</span></h3>
     <ul>
         <li>
-            <span>Prague Summer Nights Young Artists Music Festival</span>
+            <span><span class="en">Prague Summer Nights Young Artists Music Festival</span><span class="zh">布拉格仲夏之夜青年艺术家音乐节</span></span>
             <span class="year">2026</span>
         </li>
         <li>
-            <span>National Arts Fund Project, National Centre for the Performing Arts</span>
+            <span><span class="en">National Arts Fund Project, National Centre for the Performing Arts</span><span class="zh">国家艺术基金项目（国家大剧院）</span></span>
             <span class="year">2024</span>
         </li>
         <li>
-            <span>Tianjin Music Festival, Tianjin Grand Theatre</span>
+            <span><span class="en">Tianjin Music Festival, Tianjin Grand Theatre</span><span class="zh">天津音乐节，天津大剧院</span></span>
             <span class="year">2023</span>
         </li>
         <li>
-            <span>Harbin Symphony Music Festival, Harbin Grand Theatre</span>
+            <span><span class="en">Harbin Symphony Music Festival, Harbin Grand Theatre</span><span class="zh">哈尔滨交响音乐节，哈尔滨大剧院</span></span>
             <span class="year">2023</span>
         </li>
         <li>
-            <span>Hangzhou Opera Festival, Hangzhou Opera Theatre</span>
+            <span><span class="en">Hangzhou Opera Festival, Hangzhou Opera Theatre</span><span class="zh">杭州歌剧节，杭州大剧院</span></span>
             <span class="year">2023</span>
         </li>
         <li>
-            <span>Jinan International Music Festival, Shandong Grand Theatre</span>
+            <span><span class="en">Jinan International Music Festival, Shandong Grand Theatre</span><span class="zh">济南国际音乐节，山东大剧院</span></span>
             <span class="year">2019</span>
         </li>
     </ul>
 
-<h3>Masterclasses</h3>
+<h3><span class="en">Masterclasses</span><span class="zh">大师班</span></h3>
     <ul>
         <li>
             <span>Vera Lúcia Calábria, <em>Denver Lyric Opera Guild</em></span>
@@ -599,33 +606,37 @@
         </li>
     </ul>
 
-    <h3>Artistic Mentorship</h3>
+    <h3><span class="en">Artistic Mentorship</span><span class="zh">艺术指导与师承</span></h3>
     <div class="mentors-grid">
         <div class="mentor-category">
-            <span class="mentor-label">Voice Teachers</span>
-            Matthew Plenk, Xiuqi Li
+            <span class="mentor-label"><span class="en">Voice Teachers</span><span class="zh">声乐导师</span></span>
+            Matthew Plenk, <span class="zh">李秀齐</span><span class="en">Xiuqi Li</span>
         </div>
         <div class="mentor-category">
-            <span class="mentor-label">Coaches</span>
+            <span class="mentor-label"><span class="en">Coaches</span><span class="zh">艺术指导 (Coaches)</span></span>
             Beth Nielsen, Sahar Nouri, Lindsay Woodward
         </div>
         <div class="mentor-category">
-            <span class="mentor-label">Conductors</span>
+            <span class="mentor-label"><span class="en">Conductors</span><span class="zh">指挥</span></span>
             Sahar Nouri, Catherine Sailer, Christine Gaudreau, Ari Pelto
         </div>
         <div class="mentor-category">
-            <span class="mentor-label">Directors</span>
+            <span class="mentor-label"><span class="en">Directors</span><span class="zh">导演</span></span>
             Matthew Plenk, Marco Nisticò
         </div>
     </div>
 
-    <h3>Additional Skills</h3>
+    <h3><span class="en">Additional Skills</span><span class="zh">其他技能</span></h3>
     <p style="text-align: justify; color: var(--text-muted);">
-        <strong>Piano:</strong> Extensive experience accompanying vocal students and performing solo recitals. Repertoire includes works by Bach, Mozart, Beethoven, Schubert, Chopin, and Khachaturian.
+        <strong><span class="en">Piano:</span><span class="zh">钢琴：</span></strong> 
+        <span class="en">Extensive experience accompanying vocal students and performing solo recitals. Repertoire includes works by Bach, Mozart, Beethoven, Schubert, Chopin, and Khachaturian.</span>
+        <span class="zh">具备丰富的声乐伴奏与独奏经验。曲目涵盖巴赫、莫扎特、贝多芬、舒伯特、肖邦及哈恰图良的作品。</span>
     </p>
 
   </div>
 
-  <footer>&copy; 2026 Maotong Yu | Baritone</footer>
+  <footer>&copy; 2026 <span class="en">Maotong Yu | Baritone</span><span class="zh">于茂通 | 男中音</span></footer>
+
+  <script src="lang-switch.js"></script>
 </body>
 </html>

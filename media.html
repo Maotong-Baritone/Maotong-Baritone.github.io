@@ -13,6 +13,12 @@
       --text-muted: #5a4a42;
     }
 
+    /* 语言切换控制 */
+    .zh { display: none; }
+    body.lang-zh .zh { display: inline; }
+    body.lang-zh .en { display: none; }
+    #lang-switch { cursor: pointer; font-weight: bold !important; color: var(--primary-gold) !important; }
+
     body {
       margin: 0;
       font-family: 'Lato', sans-serif;
@@ -205,14 +211,15 @@
 </head>
 <body>
   <nav>
-    <a href="index.html">Home</a>
-    <a href="media.html">Media</a>
-    <a href="resume.html">Résumé</a>
-    <a href="contact.html">Contact</a>
+    <a href="index.html"><span class="en">Home</span><span class="zh">首页</span></a>
+    <a href="media.html"><span class="en">Media</span><span class="zh">媒体</span></a>
+    <a href="resume.html"><span class="en">Résumé</span><span class="zh">简历</span></a>
+    <a href="contact.html"><span class="en">Contact</span><span class="zh">联系</span></a>
+    <a id="lang-switch">中文</a>
   </nav>
 
   <section>
-    <h2>Performance Gallery</h2>
+    <h2><span class="en">Performance Gallery</span><span class="zh">演出影音</span></h2>
 
     <div class="media-grid">
 
@@ -264,6 +271,8 @@
     </div>
   </section>
 
-  <footer>&copy; 2026 Maotong Yu | Baritone</footer>
+  <footer>&copy; 2026 <span class="en">Maotong Yu | Baritone</span><span class="zh">于茂通 | 男中音</span></footer>
+
+  <script src="lang-switch.js"></script>
 </body>
 </html>
