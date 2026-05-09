@@ -245,6 +245,36 @@
        margin: 0 auto 10px auto;
     }
 
+    h3 {
+      font-family: 'Playfair Display', serif;
+      color: var(--text-main);
+      font-size: 1.6rem;
+      margin-top: 2.5rem;
+      margin-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+      padding-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h3::before {
+      content: "";
+      display: inline-block;
+      width: 4px;
+      height: 24px;
+      background: var(--primary-gold);
+    }
+
+    .photo-credit {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: -0.5rem;
+      margin-bottom: 1rem;
+      font-style: italic;
+      display: block;
+    }
+
     section p {
       color: var(--text-muted);
       font-size: 1.05rem;
@@ -387,8 +417,13 @@
       border: 4px solid #fff;
       box-shadow: 0 6px 12px rgba(0,0,0,0.15);
       transition: all 0.4s ease;
-      filter: grayscale(20%);
       scroll-snap-align: center; /* 居中对齐 */
+      image-rendering: -webkit-optimize-contrast; /* 增强对比度和清晰度 */
+    }
+
+    .scroll-gallery img:hover {
+      transform: scale(1.03);
+      filter: saturate(1.1); /* 悬停时稍微增加色彩饱和度 */
     }
 
     @media (max-width: 600px) {
@@ -502,16 +537,39 @@ dedicated to the promotion and accessibility of Chinese classical music.</span>
 
   <section>
     <h2><span class="en">Photo Gallery</span><span class="zh">照片墙</span></h2>
+    
+    <h3><span class="en">Die Fledermaus</span><span class="zh">歌剧《蝙蝠》</span></h3>
+    <p class="photo-credit">
+      <span class="en">Photo credit: Ryan Kilgroe</span>
+      <span class="zh">摄影：Ryan Kilgroe</span>
+    </p>
     <div class="scroll-gallery">
-      <img src="image/photo1.jpg" alt="Performance 1">
-      <img src="image/photo2.jpg" alt="Performance 2">
-      <img src="image/photo3.jpg" alt="Performance 3">
-      <img src="image/photo4.jpg" alt="Performance 4">
-      <img src="image/photo5.jpg" alt="Performance 5">
-      <img src="image/photo6.jpg" alt="Performance 6">
-      <img src="image/photo7.jpg" alt="Performance 7">
-      <img src="image/photo8.jpg" alt="Performance 8">
-      <img src="image/photo9.jpg" alt="Performance 9">
+      <img src="image/die fledermaus_1.JPG" alt="Die Fledermaus 1">
+      <img src="image/die fledermaus_2.JPG" alt="Die Fledermaus 2">
+      <img src="image/die fledermaus_3.JPG" alt="Die Fledermaus 3">
+      <img src="image/die fledermaus_4.JPG" alt="Die Fledermaus 4">
+      <img src="image/die fledermaus_5.JPG" alt="Die Fledermaus 5">
+      <img src="image/die fledermaus_6.JPG" alt="Die Fledermaus 6">
+      <img src="image/die fledermaus_7.JPG" alt="Die Fledermaus 7">
+      <img src="image/die fledermaus_8.JPG" alt="Die Fledermaus 8">
+      <img src="image/die fledermaus_9.JPG" alt="Die Fledermaus 9">
+    </div>
+
+    <h3><span class="en">Gianni Schicchi</span><span class="zh">歌剧《贾尼斯基基》</span></h3>
+    <div class="scroll-gallery">
+      <img src="image/Gianni Schicchi (1).jpg" alt="Gianni Schicchi 1">
+      <img src="image/Gianni Schicchi (2).jpg" alt="Gianni Schicchi 2">
+      <img src="image/Gianni Schicchi (3).jpg" alt="Gianni Schicchi 3">
+      <img src="image/Gianni Schicchi (4).jpg" alt="Gianni Schicchi 4">
+      <img src="image/Gianni Schicchi (5).jpg" alt="Gianni Schicchi 5">
+    </div>
+
+    <h3><span class="en">Recital</span><span class="zh">音乐会演出</span></h3>
+    <div class="scroll-gallery">
+      <img src="image/recital (1).jpg" alt="Recital 1">
+      <img src="image/recital (2).jpg" alt="Recital 2">
+      <img src="image/recital (3).jpg" alt="Recital 3">
+      <img src="image/recital (4).jpg" alt="Recital 4">
     </div>
   </section>
 
