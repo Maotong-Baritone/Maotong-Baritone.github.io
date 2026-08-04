@@ -2,9 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <!-- 补充的移动端视口标签，确保移动端适配生效 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Maotong Yu | Home</title>
+  
+  <!-- 预连接 Google Fonts 以加速字体加载，消除字体闪烁 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+  
   <style>
+    /* 全局盒模型优化 */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
     :root {
       --primary-gold: #c5a059;
       --deep-bg: #1a1515;
@@ -17,7 +29,12 @@
     .zh { display: none; }
     body.lang-zh .zh { display: inline; }
     body.lang-zh .en { display: none; }
-    #lang-switch { cursor: pointer; font-weight: bold !important; color: var(--primary-gold) !important; }
+    
+    #lang-switch { 
+      cursor: pointer; 
+      font-weight: bold !important; 
+      color: var(--primary-gold) !important; 
+    }
 
     body {
       margin: 0;
@@ -35,9 +52,9 @@
 
     /* --- 1. 手机端横幅 (已优化高度) --- */
     .mobile-hero-banner {
-      display: block; /* 手机上显示 */
+      display: block; 
       width: 100%;
-      height: 45vh; /* 占据屏幕高度的 45% */
+      height: 45vh; 
       object-fit: cover;
       object-position: 50% 20%; 
       filter: saturate(0.8) contrast(1.1);
@@ -50,7 +67,7 @@
 
     /* --- 2. 电脑端侧边固定图 (默认隐藏) --- */
     .side-hero-desktop {
-      display: none; /* 默认在手机上隐藏 */
+      display: none; 
       position: fixed;
       top: 0;
       bottom: 0;
@@ -98,8 +115,9 @@
       font-size: 1.1rem;
       position: relative;
     }
-    nav a:hover {
+    nav a:hover, nav a:focus {
       color: var(--primary-gold);
+      outline: none;
     }
     nav a::after {
       content: '';
@@ -111,7 +129,7 @@
       background-color: var(--primary-gold);
       transition: all 0.3s ease;
     }
-    nav a:hover::after {
+    nav a:hover::after, nav a:focus::after {
       width: 100%;
       left: 0;
     }
@@ -141,9 +159,7 @@
       outline-offset: 4px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.5);
       margin-bottom: 1.5rem;
-      
-      margin-top: -120px; /* 调整为更温和的重叠 */
-      
+      margin-top: -120px; 
       position: relative;
       z-index: 2; 
       animation: fadeIn 1.2s ease-out;
@@ -176,25 +192,10 @@
        关键媒体查询：电脑端的切换逻辑 (统一为 1024px)
        ========================================= */
     @media (min-width: 1024px) {
-      /* 1. 电脑上显示侧边固定图 */
-      .side-hero-desktop {
-        display: block;
-      }
-      
-      /* 2. 电脑上隐藏 Header 里的手机横幅 */
-      .mobile-hero-banner {
-        display: none;
-      }
-
-      /* 3. 电脑上重置头像的边距 */
-      header img.avatar {
-        margin-top: 4rem; 
-      }
-      
-      header {
-         padding-top: 0;
-         overflow: visible;
-      }
+      .side-hero-desktop { display: block; }
+      .mobile-hero-banner { display: none; }
+      header img.avatar { margin-top: 4rem; }
+      header { padding-top: 0; overflow: visible; }
     }
 
     /* ===== Section ===== */
@@ -329,49 +330,13 @@
       font-family: 'Playfair Display', serif;
     }
 
-    /* 移动端表格转卡片 */
     @media (max-width: 768px) {
-      table, thead, tbody, th, td, tr {
-        display: block;
-      }
-      thead tr {
-        position: absolute;
-        top: -9999px;
-        left: -9999px;
-      }
-      tr {
-        margin-bottom: 1.5rem;
-        border: 1px solid #eee;
-        border-radius: 4px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-      }
-      td {
-        border: none;
-        padding-left: 50%;
-        position: relative;
-        text-align: right;
-        min-height: 1.5rem;
-        border-bottom: 1px solid #f9f9f9;
-      }
-      td:last-child {
-        border-bottom: none;
-        text-align: center;
-        padding: 1rem;
-      }
-      td:before {
-        position: absolute;
-        left: 1rem;
-        width: 45%;
-        padding-right: 10px;
-        white-space: nowrap;
-        text-align: left;
-        font-weight: bold;
-        color: var(--primary-gold);
-        content: attr(data-label);
-        font-family: 'Playfair Display', serif;
-        text-transform: uppercase;
-        font-size: 0.8rem;
-      }
+      table, thead, tbody, th, td, tr { display: block; }
+      thead tr { position: absolute; top: -9999px; left: -9999px; }
+      tr { margin-bottom: 1.5rem; border: 1px solid #eee; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+      td { border: none; padding-left: 50%; position: relative; text-align: right; min-height: 1.5rem; border-bottom: 1px solid #f9f9f9; }
+      td:last-child { border-bottom: none; text-align: center; padding: 1rem; }
+      td:before { position: absolute; left: 1rem; width: 45%; padding-right: 10px; white-space: nowrap; text-align: left; font-weight: bold; color: var(--primary-gold); content: attr(data-label); font-family: 'Playfair Display', serif; text-transform: uppercase; font-size: 0.8rem; }
     }
 
     a.button-link {
@@ -399,16 +364,15 @@
       gap: 1.5rem;
       padding: 1rem 0 2.5rem 0;
       scroll-behavior: smooth;
-      scroll-snap-type: x mandatory; /* 滚动捕捉 */
+      scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
+      /* Firefox 滚动条兼容 */
+      scrollbar-width: thin; 
+      scrollbar-color: var(--primary-gold) transparent;
     }
-    .scroll-gallery::-webkit-scrollbar {
-      height: 6px;
-    }
-    .scroll-gallery::-webkit-scrollbar-thumb {
-      background-color: var(--primary-gold);
-      border-radius: 3px;
-    }
+    .scroll-gallery::-webkit-scrollbar { height: 6px; }
+    .scroll-gallery::-webkit-scrollbar-thumb { background-color: var(--primary-gold); border-radius: 3px; }
+    
     .scroll-gallery img {
       flex: 0 0 auto;
       width: 380px;
@@ -417,23 +381,18 @@
       border: 4px solid #fff;
       box-shadow: 0 6px 12px rgba(0,0,0,0.15);
       transition: all 0.4s ease;
-      scroll-snap-align: center; /* 居中对齐 */
-      image-rendering: -webkit-optimize-contrast; /* 增强对比度和清晰度 */
+      scroll-snap-align: center; 
+      image-rendering: -webkit-optimize-contrast; 
     }
 
     .scroll-gallery img:hover {
       transform: scale(1.03);
-      filter: saturate(1.1); /* 悬停时稍微增加色彩饱和度 */
+      filter: saturate(1.1); 
     }
 
     @media (max-width: 600px) {
-      section {
-        padding: 2rem 1.5rem;
-      }
-      .scroll-gallery img {
-        width: 85vw; /* 手机上占据大部分屏幕宽度 */
-        height: 220px;
-      }
+      section { padding: 2rem 1.5rem; }
+      .scroll-gallery img { width: 85vw; height: 220px; }
     }
 
     /* ===== Footer ===== */
@@ -466,13 +425,14 @@
     <a href="media.html"><span class="en">Media</span><span class="zh">媒体</span></a>
     <a href="resume.html"><span class="en">Résumé</span><span class="zh">简历</span></a>
     <a href="contact.html"><span class="en">Contact</span><span class="zh">联系</span></a>
-    <a id="lang-switch">中文</a>
+    <!-- 添加了无障碍角色和 tab 键索引 -->
+    <a id="lang-switch" role="button" tabindex="0">中文</a>
   </nav>
 
   <header>
-    <img src="image/photo_left.jpg" alt="Stage appearance" class="mobile-hero-banner">
-
-    <img src="profile_photo.jpg" alt="Maotong Yu Portrait" class="avatar">
+    <!-- 优化了首图及头像的 alt 文本，保留原生加载 (由于在首屏) -->
+    <img src="image/photo_left.jpg" alt="Maotong Yu performing on stage" class="mobile-hero-banner">
+    <img src="profile_photo.jpg" alt="Portrait of Baritone Maotong Yu" class="avatar">
     <h1><span class="en">Maotong Yu</span><span class="zh">于茂同</span></h1>
     <p><span class="en">Baritone</span><span class="zh">男中音</span></p>
   </header>
@@ -495,8 +455,7 @@
     </p>
 
     <p>
-      <span class="en">Beyond performance, Yu is a multifaceted artist active in musicological research and digital initiatives. Alongside his engagement with the Mountain-Plains Chapter of the Music Library Association (MPMLA), he developed the interactive game<a href="https://maotong-baritone.itch.io/sonarium-eternum" target="_blank" rel="noopener noreferrer"><em>Sonarium Eternum</em></a> and maintains a <a href="https://maotong.me/maotongmusic/" target="_blank" rel="noopener noreferrer">free online score library</a> 
-dedicated to the promotion and accessibility of Chinese classical music.</span>
+      <span class="en">Beyond performance, Yu is a multifaceted artist active in musicological research and digital initiatives. Alongside his engagement with the Mountain-Plains Chapter of the Music Library Association (MPMLA), he developed the interactive game <a href="https://maotong-baritone.itch.io/sonarium-eternum" target="_blank" rel="noopener noreferrer"><em>Sonarium Eternum</em></a> and maintains a <a href="https://maotong.me/maotongmusic/" target="_blank" rel="noopener noreferrer">free online score library</a> dedicated to the promotion and accessibility of Chinese classical music.</span>
       <span class="zh">在声乐表演之外，于茂同是一位活跃于音乐学研究与数字前沿领域的多栖艺术家。在参与北美音乐图书馆协会山地-平原分会（MPMLA）学术交流的同时，他还开发了互动游戏 <a href="https://maotong-baritone.itch.io/sonarium-eternum" target="_blank" rel="noopener noreferrer"><em>Sonarium Eternum</em></a>，并维护着一个<a href="https://maotong.me/maotongmusic/" target="_blank" rel="noopener noreferrer">免费在线乐谱库</a>，致力于推动中国古典音乐的传播与普及。</span>
     </p>
   </section>
@@ -517,13 +476,13 @@ dedicated to the promotion and accessibility of Chinese classical music.</span>
           <td data-label="Date"><span class="en">TBD</span><span class="zh">待定</span><br><span style="font-size:0.85em; font-weight:normal;">TBD</span></td>
           <td data-label="Event"><span class="en">Il Viaggio a Reims - Lord Sidney</span><span class="zh">兰斯之旅 - 西德尼爵士</span></td>
           <td data-label="Location"><span class="en">Newman Center, Lamont Opera Theatre</span><span class="zh">纽曼中心，拉蒙特歌剧院</span></td>
-          <td data-label="Details" style="text-align:center;"><a class="button-link" href="https://vstupenky.narodni-divadlo.cz/narodni-divadlo/standard/Hall/Index/4328347/xi6eTLWOjqPhTn8s_plu_ZFJ_plu_A_rov__rov__xcodex_AGA1gFbU4wiC-XxOiSuR7VGyN5gD73pTY5lTPw__?" target="_blank"><span class="en">View</span><span class="zh">查看</span></a></td>
+          <td data-label="Details" style="text-align:center;"><a class="button-link" href="https://vstupenky.narodni-divadlo.cz/narodni-divadlo/standard/Hall/Index/4328347/xi6eTLWOjqPhTn8s_plu_ZFJ_plu_A_rov__rov__xcodex_AGA1gFbU4wiC-XxOiSuR7VGyN5gD73pTY5lTPw__?" target="_blank" rel="noopener noreferrer"><span class="en">View</span><span class="zh">查看</span></a></td>
         </tr>
          <tr>
           <td data-label="Date"><span class="en">TBD</span><span class="zh">待定</span><br><span style="font-size:0.85em; font-weight:normal;">TBD</span></td>
           <td data-label="Event"><span class="en">Macbeth - Opera Colorado Chorus</span><span class="zh">麦克白 - Opera Colorado 合唱</span></td>
           <td data-label="Location"><span class="en">Ellie Caulkins Opera House</span><span class="zh">Ellie Caulkins Opera House</span></td>
-          <td data-label="Details" style="text-align:center;"><a class="button-link" href="https://vstupenky.narodni-divadlo.cz/narodni-divadlo/standard/Hall/Index/4328347/xi6eTLWOjqPhTn8s_plu_ZFJ_plu_A_rov__rov__xcodex_AGA1gFbU4wiC-XxOiSuR7VGyN5gD73pTY5lTPw__?" target="_blank"><span class="en">View</span><span class="zh">查看</span></a></td>
+          <td data-label="Details" style="text-align:center;"><a class="button-link" href="https://vstupenky.narodni-divadlo.cz/narodni-divadlo/standard/Hall/Index/4328347/xi6eTLWOjqPhTn8s_plu_ZFJ_plu_A_rov__rov__xcodex_AGA1gFbU4wiC-XxOiSuR7VGyN5gD73pTY5lTPw__?" target="_blank" rel="noopener noreferrer"><span class="en">View</span><span class="zh">查看</span></a></td>
         </tr>
       </tbody>
     </table>
@@ -532,18 +491,19 @@ dedicated to the promotion and accessibility of Chinese classical music.</span>
   <section>
     <h2><span class="en">Photo Gallery</span><span class="zh">照片墙</span></h2>
     
+    <!-- 增加了 loading="lazy" 以及更具体的 Alt Text -->
     <h3><span class="en">Don Giovanni</span><span class="zh">歌剧《唐璜》</span></h3>
     <p class="photo-credit">
       <span class="en">Photo credit: Kurt Vinion | kurtvinion.com</span>
       <span class="zh">摄影：Kurt Vinion | kurtvinion.com</span>
     </p>
     <div class="scroll-gallery">
-      <img src="image/DG_1.jpg" alt="Don Giovanni 1">
-      <img src="image/DG_2.jpg" alt="Don Giovanni 2">
-      <img src="image/DG_3.jpg" alt="Don Giovanni 3">
-      <img src="image/DG_4.jpg" alt="Don Giovanni 4">
-      <img src="image/DG_5.jpg" alt="Don Giovanni 5">
-      <img src="image/DG_6.jpg" alt="Don Giovanni 6">
+      <img src="image/DG_1.jpg" alt="Maotong Yu performing as Don Giovanni - Image 1" loading="lazy">
+      <img src="image/DG_2.jpg" alt="Maotong Yu performing as Don Giovanni - Image 2" loading="lazy">
+      <img src="image/DG_3.jpg" alt="Maotong Yu performing as Don Giovanni - Image 3" loading="lazy">
+      <img src="image/DG_4.jpg" alt="Maotong Yu performing as Don Giovanni - Image 4" loading="lazy">
+      <img src="image/DG_5.jpg" alt="Maotong Yu performing as Don Giovanni - Image 5" loading="lazy">
+      <img src="image/DG_6.jpg" alt="Maotong Yu performing as Don Giovanni - Image 6" loading="lazy">
     </div>
 
     <h3><span class="en">Die Fledermaus</span><span class="zh">歌剧《蝙蝠》</span></h3>
@@ -552,24 +512,24 @@ dedicated to the promotion and accessibility of Chinese classical music.</span>
       <span class="zh">摄影：Ryan Kilgroe</span>
     </p>
     <div class="scroll-gallery">
-      <img src="image/die fledermaus_1.JPG" alt="Die Fledermaus 1">
-      <img src="image/die fledermaus_2.JPG" alt="Die Fledermaus 2">
-      <img src="image/die fledermaus_3.JPG" alt="Die Fledermaus 3">
-      <img src="image/die fledermaus_4.JPG" alt="Die Fledermaus 4">
-      <img src="image/die fledermaus_5.JPG" alt="Die Fledermaus 5">
-      <img src="image/die fledermaus_6.JPG" alt="Die Fledermaus 6">
-      <img src="image/die fledermaus_7.JPG" alt="Die Fledermaus 7">
-      <img src="image/die fledermaus_8.JPG" alt="Die Fledermaus 8">
-      <img src="image/die fledermaus_9.JPG" alt="Die Fledermaus 9">
+      <img src="image/die fledermaus_1.JPG" alt="Maotong Yu in Die Fledermaus - Image 1" loading="lazy">
+      <img src="image/die fledermaus_2.JPG" alt="Maotong Yu in Die Fledermaus - Image 2" loading="lazy">
+      <img src="image/die fledermaus_3.JPG" alt="Maotong Yu in Die Fledermaus - Image 3" loading="lazy">
+      <img src="image/die fledermaus_4.JPG" alt="Maotong Yu in Die Fledermaus - Image 4" loading="lazy">
+      <img src="image/die fledermaus_5.JPG" alt="Maotong Yu in Die Fledermaus - Image 5" loading="lazy">
+      <img src="image/die fledermaus_6.JPG" alt="Maotong Yu in Die Fledermaus - Image 6" loading="lazy">
+      <img src="image/die fledermaus_7.JPG" alt="Maotong Yu in Die Fledermaus - Image 7" loading="lazy">
+      <img src="image/die fledermaus_8.JPG" alt="Maotong Yu in Die Fledermaus - Image 8" loading="lazy">
+      <img src="image/die fledermaus_9.JPG" alt="Maotong Yu in Die Fledermaus - Image 9" loading="lazy">
     </div>
 
     <h3><span class="en">Gianni Schicchi</span><span class="zh">歌剧《贾尼斯基基》</span></h3>
     <div class="scroll-gallery">
-      <img src="image/Gianni Schicchi (1).jpg" alt="Gianni Schicchi 1">
-      <img src="image/Gianni Schicchi (2).jpg" alt="Gianni Schicchi 2">
-      <img src="image/Gianni Schicchi (3).jpg" alt="Gianni Schicchi 3">
-      <img src="image/Gianni Schicchi (4).jpg" alt="Gianni Schicchi 4">
-      <img src="image/Gianni Schicchi (5).jpg" alt="Gianni Schicchi 5">
+      <img src="image/Gianni Schicchi (1).jpg" alt="Maotong Yu in Gianni Schicchi - Image 1" loading="lazy">
+      <img src="image/Gianni Schicchi (2).jpg" alt="Maotong Yu in Gianni Schicchi - Image 2" loading="lazy">
+      <img src="image/Gianni Schicchi (3).jpg" alt="Maotong Yu in Gianni Schicchi - Image 3" loading="lazy">
+      <img src="image/Gianni Schicchi (4).jpg" alt="Maotong Yu in Gianni Schicchi - Image 4" loading="lazy">
+      <img src="image/Gianni Schicchi (5).jpg" alt="Maotong Yu in Gianni Schicchi - Image 5" loading="lazy">
     </div>
 
     <h3><span class="en">Recital</span><span class="zh">音乐会演出</span></h3>
@@ -578,9 +538,9 @@ dedicated to the promotion and accessibility of Chinese classical music.</span>
       <span class="zh">摄影：Kurt Vinion | kurtvinion.com</span>
     </p>
     <div class="scroll-gallery">
-      <img src="image/recital (1).jpg" alt="Recital 1">
-      <img src="image/recital (2).jpg" alt="Recital 2">
-      <img src="image/recital (3).jpg" alt="Recital 3">
+      <img src="image/recital (1).jpg" alt="Maotong Yu Recital Performance - Image 1" loading="lazy">
+      <img src="image/recital (2).jpg" alt="Maotong Yu Recital Performance - Image 2" loading="lazy">
+      <img src="image/recital (3).jpg" alt="Maotong Yu Recital Performance - Image 3" loading="lazy">
     </div>
   </section>
 
