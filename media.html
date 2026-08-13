@@ -218,11 +218,11 @@
     <a id="lang-switch">中文</a>
   </nav>
 
+  <!-- 第一部分：专门录制的面试视频 -->
   <section>
-    <h2><span class="en">Performance Gallery</span><span class="zh">演出影音</span></h2>
+    <h2><span class="en">Selected Repertoire</span><span class="zh">精选曲目</span></h2>
 
     <div class="media-grid">
-
       <div class="media-item">
         <div class="video-frame">
           <iframe src="https://www.youtube.com/embed/dcjhfpWdll0" frameborder="0" allowfullscreen></iframe>
@@ -249,29 +249,45 @@
         <div class="divider"></div>
         <p style="font-size: 0.9em; color: #666; margin-top: -10px;">Beethoven 9th Symphony</p>
       </div>
+    </div>
+  </section>
 
+<!-- 第二部分：演出现场视频 -->
+  <section>
+    <h2><span class="en">Live Performances</span><span class="zh">演出现场</span></h2>
+
+    <div class="media-grid">
+      <div class="media-item">
+        <div class="video-frame">
+          <iframe src="https://www.youtube.com/embed/G62Xa4oi2vE" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <h3>La ci darem la mano</h3>
+        <div class="divider"></div>
+        <p style="font-size: 0.9em; color: #666; margin-top: -10px;">Don Giovanni</p>
+      </div>
+
+      <div class="media-item">
+        <div class="video-frame">
+          <!-- 这里补上了 src 左边的双引号 -->
+          <iframe src="https://www.youtube.com/embed/a2EjgDC5YFQ" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <h3>Komm mit mir zum Souper</h3>
+        <div class="divider"></div>
+        <p style="font-size: 0.9em; color: #666; margin-top: -10px;">Die Fledermaus</p>
+      </div>
+
+      <!-- 这个视频被移回了 media-grid 内部 -->
       <div class="media-item">
         <div class="video-frame">
           <iframe src="https://www.youtube.com/embed/AAWH9iMF2jI" frameborder="0" allowfullscreen></iframe>
         </div>
-        <h3>Era eguale la voce - Gianni Schicchi</h3>
+        <h3>Era eguale la voce</h3>
         <div class="divider"></div>
         <p style="font-size: 0.9em; color: #666; margin-top: -10px;">Gianni Schicchi</p>
       </div>
-
-      <div class="media-item">
-        <div class="video-frame">
-          <iframe src="https://www.youtube.com/embed/qDtRvkYxHLQ" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <h3>Behold! Auspicious flashes rise - Semele</h3>
-        <div class="divider"></div>
-        <p style="font-size: 0.9em; color: #666; margin-top: -10px;">Semele</p>
-      </div>
-
-    </div>
-  </section>
-
-  <footer>&copy; 2026 <span class="en">Maotong Yu | Baritone</span><span class="zh">于茂通 | 男中音</span></footer>
+      
+    </div> <!-- media-grid 正确的闭合位置在这里 -->
+  </section>  <footer>&copy; 2026 <span class="en">Maotong Yu | Baritone</span><span class="zh">于茂同 | 男中音</span></footer>
 
   <script src="lang-switch.js"></script>
 </body>
