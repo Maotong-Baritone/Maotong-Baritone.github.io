@@ -27,9 +27,11 @@
       color: var(--text-main);
       line-height: 1.6;
       min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
-    /* ===== 导航栏 (保持一致) ===== */
+    /* ===== 导航栏 ===== */
     nav {
       background-color: rgba(26, 21, 21, 0.95);
       padding: 1.2rem;
@@ -69,19 +71,30 @@
       left: 0;
     }
 
+    /* ===== 整体并排布局容器 ===== */
+    .gallery-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      max-width: 1400px; /* 加宽以容纳两列 Section */
+      margin: 3rem auto 4rem auto;
+      padding: 0 2rem;
+      align-items: flex-start; /* 顶部对齐，即使两边视频数量不同 */
+      flex: 1;
+    }
+
     /* ===== Section 容器 ===== */
     section {
-      padding: 4rem 3rem;
-      max-width: 1000px; /*稍微加宽以容纳两列视频 */
-      margin: auto;
+      flex: 1; /* 左右平分宽度 */
+      min-width: 450px; /* 屏幕变窄时保持的最小宽度 */
+      padding: 3rem 2.5rem;
       background-color: var(--card-bg);
       border-radius: 4px;
-      margin-top: 3rem;
       box-shadow: 0 15px 35px rgba(0,0,0,0.3);
       animation: fadeIn 1s ease-out;
       position: relative;
       border: 1px solid #e0e0e0;
-      margin-bottom: 4rem;
+      box-sizing: border-box;
     }
     
     /* 内部装饰金线 */
@@ -97,9 +110,10 @@
     h2 {
       font-family: 'Playfair Display', serif;
       color: #1a1515;
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       text-align: center;
       margin-bottom: 3rem;
+      margin-top: 0;
       position: relative;
     }
     h2::after {
@@ -119,13 +133,11 @@
        margin: 0 auto 10px auto;
     }
 
-    /* ===== 视频网格布局 ===== */
+    /* ===== 视频网格布局 (单列) ===== */
     .media-grid {
       display: grid;
-      /* 自适应两列布局：宽度至少400px，否则换行 */
-      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
+      grid-template-columns: 1fr; /* 因为分为左右两块了，所以内部改为单列显示更清晰 */
       gap: 3rem;
-      padding: 0 1rem;
     }
 
     .media-item {
@@ -186,11 +198,12 @@
     /* ===== Footer ===== */
     footer {
       text-align: center;
-      padding: 3rem 1rem;
+      padding: 2rem 1rem;
       font-size: 0.9em;
       background-color: transparent;
       color: rgba(255, 255, 255, 0.6);
       border-top: 1px solid rgba(197, 160, 89, 0.2);
+      margin-top: auto;
     }
 
     @keyframes fadeIn {
@@ -198,12 +211,15 @@
       to { opacity: 1; transform: translateY(0); }
     }
     
-    /* 移动端适配 */
-    @media (max-width: 768px) {
-        .media-grid {
-            grid-template-columns: 1fr; /* 手机上单列 */
+    /* ===== 移动端/平板适配 ===== */
+    @media (max-width: 1024px) {
+        .gallery-wrapper {
+            flex-direction: column; /* 屏幕太窄时变为上下两块 */
+            padding: 0 1rem;
         }
         section {
+            width: 100%;
+            min-width: auto;
             padding: 2rem 1rem;
         }
     }
@@ -218,76 +234,81 @@
     <a id="lang-switch">中文</a>
   </nav>
 
-  <!-- 第一部分：专门录制的面试视频 -->
-  <section>
-    <h2><span class="en">Selected Repertoire</span><span class="zh">精选曲目</span></h2>
+  <!-- 整体布局容器开始 -->
+  <div class="gallery-wrapper">
 
-    <div class="media-grid">
-      <div class="media-item">
-        <div class="video-frame">
-          <iframe src="https://www.youtube.com/embed/dcjhfpWdll0" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <h3>Ja vas lyublyu - The Queen of Spades</h3>
-        <div class="divider"></div>
-        <p style="font-size: 0.9em; color: #666; margin-top: -10px;">Dr. Atomic</p>
-      </div>
-      
-      <div class="media-item">
-        <div class="video-frame">
-          <iframe src="https://www.youtube.com/embed/KIcytDNCBeo" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <h3>Their brains are boiled - The Tempest</h3>
-        <div class="divider"></div>
-        <p style="font-size: 0.9em; color: #666; margin-top: -10px;">Carmina Burana</p>
-      </div>
+    <!-- 左侧部分：专门录制的精选曲目 -->
+    <section>
+      <h2><span class="en">Selected Repertoire</span><span class="zh">精选曲目</span></h2>
 
-      <div class="media-item">
-        <div class="video-frame">
-          <iframe src="https://www.youtube.com/embed/pbFQCTV9OhQ" frameborder="0" allowfullscreen></iframe>
+      <div class="media-grid">
+        <div class="media-item">
+          <div class="video-frame">
+            <iframe src="https://www.youtube.com/embed/dcjhfpWdll0" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <h3>Ja vas lyublyu</h3>
+          <div class="divider"></div>
+          <p style="font-size: 0.9em; color: #666; margin-top: -10px;">The Queen of Spades</p>
         </div>
-        <h3>E sogno? O realta? - Falstaff</h3>
-        <div class="divider"></div>
-        <p style="font-size: 0.9em; color: #666; margin-top: -10px;">Beethoven 9th Symphony</p>
-      </div>
-    </div>
-  </section>
-
-<!-- 第二部分：演出现场视频 -->
-  <section>
-    <h2><span class="en">Live Performances</span><span class="zh">演出现场</span></h2>
-
-    <div class="media-grid">
-      <div class="media-item">
-        <div class="video-frame">
-          <iframe src="https://www.youtube.com/embed/G62Xa4oi2vE" frameborder="0" allowfullscreen></iframe>
+        
+        <div class="media-item">
+          <div class="video-frame">
+            <iframe src="https://www.youtube.com/embed/KIcytDNCBeo" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <h3>Their brains are boiled</h3>
+          <div class="divider"></div>
+          <p style="font-size: 0.9em; color: #666; margin-top: -10px;"> The Tempest</p>
         </div>
-        <h3>La ci darem la mano</h3>
-        <div class="divider"></div>
-        <p style="font-size: 0.9em; color: #666; margin-top: -10px;">Don Giovanni</p>
-      </div>
 
-      <div class="media-item">
-        <div class="video-frame">
-          <!-- 这里补上了 src 左边的双引号 -->
-          <iframe src="https://www.youtube.com/embed/a2EjgDC5YFQ" frameborder="0" allowfullscreen></iframe>
+        <div class="media-item">
+          <div class="video-frame">
+            <iframe src="https://www.youtube.com/embed/pbFQCTV9OhQ" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <h3>E sogno? O realta? </h3>
+          <div class="divider"></div>
+          <p style="font-size: 0.9em; color: #666; margin-top: -10px;">Falstaff</p>
         </div>
-        <h3>Komm mit mir zum Souper</h3>
-        <div class="divider"></div>
-        <p style="font-size: 0.9em; color: #666; margin-top: -10px;">Die Fledermaus</p>
       </div>
+    </section>
 
-      <!-- 这个视频被移回了 media-grid 内部 -->
-      <div class="media-item">
-        <div class="video-frame">
-          <iframe src="https://www.youtube.com/embed/AAWH9iMF2jI" frameborder="0" allowfullscreen></iframe>
+    <!-- 右侧部分：演出现场视频 -->
+    <section>
+      <h2><span class="en">Live Performances</span><span class="zh">演出现场</span></h2>
+
+      <div class="media-grid">
+        <div class="media-item">
+          <div class="video-frame">
+            <iframe src="https://www.youtube.com/embed/G62Xa4oi2vE" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <h3>La ci darem la mano</h3>
+          <div class="divider"></div>
+          <p style="font-size: 0.9em; color: #666; margin-top: -10px;">Don Giovanni</p>
         </div>
-        <h3>Era eguale la voce</h3>
-        <div class="divider"></div>
-        <p style="font-size: 0.9em; color: #666; margin-top: -10px;">Gianni Schicchi</p>
+
+        <div class="media-item">
+          <div class="video-frame">
+            <iframe src="https://www.youtube.com/embed/a2EjgDC5YFQ" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <h3>Komm mit mir zum Souper</h3>
+          <div class="divider"></div>
+          <p style="font-size: 0.9em; color: #666; margin-top: -10px;">Die Fledermaus</p>
+        </div>
+
+        <div class="media-item">
+          <div class="video-frame">
+            <iframe src="https://www.youtube.com/embed/AAWH9iMF2jI" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <h3>Era eguale la voce</h3>
+          <div class="divider"></div>
+          <p style="font-size: 0.9em; color: #666; margin-top: -10px;">Gianni Schicchi</p>
+        </div>
       </div>
-      
-    </div> <!-- media-grid 正确的闭合位置在这里 -->
-  </section>  <footer>&copy; 2026 <span class="en">Maotong Yu | Baritone</span><span class="zh">于茂同 | 男中音</span></footer>
+    </section>
+
+  </div>
+  <!-- 整体布局容器结束 -->
+
+  <footer>&copy; 2026 <span class="en">Maotong Yu | Baritone</span><span class="zh">于茂同 | 男中音</span></footer>
 
   <script src="lang-switch.js"></script>
 </body>
